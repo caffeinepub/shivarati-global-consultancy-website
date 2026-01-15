@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { GraduationCap, Briefcase, TrendingUp, CheckCircle2, FileText, Calendar, Euro, Plane, Wallet, Globe } from 'lucide-react';
+import { GraduationCap, Briefcase, TrendingUp, CheckCircle2, FileText, Calendar, Euro, Plane, Wallet, Globe, Award } from 'lucide-react';
 
 export function ProductOffering() {
   return (
@@ -635,6 +635,132 @@ export function ProductOffering() {
                           <p className="text-sm text-muted-foreground">
                             We help you identify the best program for your qualifications and career goals, handling all documentation 
                             and application processes for a smooth transition to your chosen European destination.
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="job-seeker-visa-eu">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <Award className="h-5 w-5 text-primary" />
+                        <span>JOB SEEKER VISA FOR EU</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-6">
+                        <div>
+                          <h4 className="font-semibold text-lg mb-3 text-primary">Germany Job Seeker Visa – Opportunity Card (Chancenkarte)</h4>
+                        </div>
+
+                        <div>
+                          <h5 className="font-semibold text-base mb-3">What is Chancenkarte?</h5>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            The Chancenkarte (Opportunity Card) is Germany's new points-based immigration system introduced in 2024 
+                            to attract international talent. This visa allows skilled professionals to enter Germany for up to 12 months 
+                            to search for employment. During this period, holders can work part-time (up to 20 hours per week) and 
+                            participate in job trials to demonstrate their skills to potential employers.
+                          </p>
+                        </div>
+
+                        <div>
+                          <h5 className="font-semibold text-base mb-3">How Do You Qualify?</h5>
+                          <p className="text-sm text-muted-foreground mb-3">
+                            The Chancenkarte uses a points-based system where applicants must score a minimum of 6 points across 
+                            various categories:
+                          </p>
+                          <ul className="space-y-2">
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Education</p>
+                                <p className="text-sm text-muted-foreground">Recognized academic or vocational qualifications</p>
+                              </div>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Work Experience</p>
+                                <p className="text-sm text-muted-foreground">Relevant professional background</p>
+                              </div>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Age</p>
+                                <p className="text-sm text-muted-foreground">Younger applicants receive more points</p>
+                              </div>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Language Skills</p>
+                                <p className="text-sm text-muted-foreground">German and English proficiency levels</p>
+                              </div>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Prior German Stays</p>
+                                <p className="text-sm text-muted-foreground">Previous experience in Germany</p>
+                              </div>
+                            </li>
+                            <li className="flex items-start space-x-2">
+                              <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                              <div>
+                                <p className="text-sm font-medium">Partner Eligibility</p>
+                                <p className="text-sm text-muted-foreground">Spouse's qualifications can contribute points</p>
+                              </div>
+                            </li>
+                          </ul>
+
+                          <div className="mt-4 bg-background p-4 rounded-lg">
+                            <p className="text-sm font-semibold mb-2">Two Qualification Routes Available:</p>
+                            <ul className="space-y-2">
+                              <li className="flex items-start space-x-2">
+                                <div className="bg-primary/20 rounded-full p-1 mt-1">
+                                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                                </div>
+                                <span className="text-sm">Direct qualification with a recognized academic or vocational degree</span>
+                              </li>
+                              <li className="flex items-start space-x-2">
+                                <div className="bg-primary/20 rounded-full p-1 mt-1">
+                                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                                </div>
+                                <span className="text-sm">Points-based option for those who score at least 6 points in the assessment system</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div>
+                          <h5 className="font-semibold text-base mb-3">Key Requirements</h5>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            <div className="bg-background p-3 rounded-lg">
+                              <p className="text-sm">• Recognized qualification OR minimum 6 points in the points system</p>
+                            </div>
+                            <div className="bg-background p-3 rounded-lg">
+                              <p className="text-sm">• German language proficiency: minimum A2 level (preferably B1)</p>
+                            </div>
+                            <div className="bg-background p-3 rounded-lg">
+                              <p className="text-sm">• English language proficiency: minimum B2 level</p>
+                            </div>
+                            <div className="bg-background p-3 rounded-lg">
+                              <p className="text-sm">• Proof of financial means: €1,091 per month for the duration of stay</p>
+                            </div>
+                            <div className="bg-background p-3 rounded-lg col-span-2">
+                              <p className="text-sm">• No job offer required at the time of application</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                          <h5 className="text-sm font-semibold mb-2">Closing Note</h5>
+                          <p className="text-sm text-muted-foreground">
+                            This visa pathway is ideal for Indian professionals looking to explore Germany's dynamic job market. 
+                            Shivarita Global provides comprehensive assistance with documentation preparation, blocked account setup, 
+                            and embassy interview preparation to ensure your successful application for the Chancenkarte.
                           </p>
                         </div>
                       </div>

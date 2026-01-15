@@ -88,6 +88,37 @@ Organized into three main service categories with expanded detailed content:
 - **Digital Nomad Visa**: Requirements and application process for remote workers with detailed criteria
 - **EU Visa Equivalents by Country**: Comprehensive information for Austria, Netherlands, Ireland, Spain, Luxembourg, Portugal, Slovakia, and Malta including country-specific requirements and benefits
 - **Key Programs**: Skilled Worker (EU Blue Card), Job Seeker Visa and Chancenkarte, Digital Nomad Visa, Golden Visa
+
+##### JOB SEEKER VISA FOR EU
+
+###### Germany Job Seeker Visa – Opportunity Card (Chancenkarte)
+
+**What is Chancenkarte?**
+The Chancenkarte (Opportunity Card) is Germany's new points-based immigration system introduced in 2024 to attract international talent. This visa allows skilled professionals to enter Germany for up to 12 months to search for employment. During this period, holders can work part-time (up to 20 hours per week) and participate in job trials to demonstrate their skills to potential employers.
+
+**How Do You Qualify?**
+The Chancenkarte uses a points-based system where applicants must score a minimum of 6 points across various categories:
+- Education (recognized academic or vocational qualifications)
+- Work experience (relevant professional background)
+- Age (younger applicants receive more points)
+- Language skills (German and English proficiency levels)
+- Prior German stays (previous experience in Germany)
+- Partner eligibility (spouse's qualifications can contribute points)
+
+There are two qualification routes available:
+- Direct qualification with a recognized academic or vocational degree
+- Points-based option for those who score at least 6 points in the assessment system
+
+**Key Requirements**
+- Recognized qualification OR minimum 6 points in the points system
+- German language proficiency: minimum A2 level (preferably B1)
+- English language proficiency: minimum B2 level
+- Proof of financial means: €1,091 per month for the duration of stay
+- No job offer required at the time of application
+
+**Closing Note**
+This visa pathway is ideal for Indian professionals looking to explore Germany's dynamic job market. Shivarita Global provides comprehensive assistance with documentation preparation, blocked account setup, and embassy interview preparation to ensure your successful application for the Chancenkarte.
+
 - Clear subsections with detailed information for each visa type formatted with proper headings and bullet points
 - Section backgrounds using harmonious gradients from the new color scheme
 - All content styled with dark blue, purple, and teal green color palette for consistency
@@ -190,6 +221,7 @@ Organized into three main service categories with expanded detailed content:
 - **Content Updates**: Replace all instances of "98% Success Rate" with "High Success Rate" throughout the website
 - **IMC Logo Integration**: Use Asset 1-2.png in the IMC Certified Compliance section with proper sizing and visibility against the current color theme
 - **Professional Services Content Integration**: Ensure all Professional Services content loads properly with correct formatting, subheadings, bullet points, and paragraphs styled with the site's color scheme
+- **Job Seeker Visa EU Section Integration**: Ensure the new "JOB SEEKER VISA FOR EU" section integrates properly within the accordion/tab structure of Product Offerings with consistent formatting, responsive design, and internal linking capabilities
 - **Deployment Compatibility**: Verify the application compiles and deploys without backend artifact errors
 
 ## Content Language
