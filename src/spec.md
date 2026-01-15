@@ -70,7 +70,7 @@ A professional visa consultancy website for Shivarita Global Consultancy with a 
 - Buttons and interactive elements using dark blue, purple, and teal green palette
 
 ### 6. Product Offering
-Organized into three main service categories with expanded detailed content:
+Organized into four main service categories with expanded detailed content:
 
 #### Student Services
 - Educational visa assistance and student immigration support
@@ -122,6 +122,17 @@ This visa pathway is ideal for Indian professionals looking to explore Germany's
 - Clear subsections with detailed information for each visa type formatted with proper headings and bullet points
 - Section backgrounds using harmonious gradients from the new color scheme
 - All content styled with dark blue, purple, and teal green color palette for consistency
+
+#### Digital Nomad Visa
+- Comprehensive information on digital nomad visa requirements and application process
+- Detailed guidance on eligibility criteria for remote workers
+- Documentation requirements and application procedures
+- Benefits and advantages of digital nomad visa programs
+- Country-specific information for European digital nomad visas
+- Clear subsections with detailed information formatted with proper headings and bullet points
+- Section backgrounds using harmonious gradients from the new color scheme
+- All content styled with dark blue, purple, and teal green color palette for consistency
+- Tab navigation functionality consistent with other service categories
 
 #### Investment-Related Services
 - **Investment Visa**: Comprehensive information on investment requirements, benefits, and application process
@@ -203,6 +214,7 @@ This visa pathway is ideal for Indian professionals looking to explore Germany's
 - WhatsApp integration for sending user details to +91 7738422920
 - Frontend form handling with success and error notifications
 - Collapsible panels or accordion functionality for product offering sections
+- Tab navigation functionality for all service categories including the new Digital Nomad Visa tab
 - Mobile-responsive design with enhanced content organization
 - Fast loading times and optimized performance
 - SEO-friendly structure with expanded content
@@ -222,6 +234,7 @@ This visa pathway is ideal for Indian professionals looking to explore Germany's
 - **IMC Logo Integration**: Use Asset 1-2.png in the IMC Certified Compliance section with proper sizing and visibility against the current color theme
 - **Professional Services Content Integration**: Ensure all Professional Services content loads properly with correct formatting, subheadings, bullet points, and paragraphs styled with the site's color scheme
 - **Job Seeker Visa EU Section Integration**: Ensure the new "JOB SEEKER VISA FOR EU" section integrates properly within the accordion/tab structure of Product Offerings with consistent formatting, responsive design, and internal linking capabilities
+- **Digital Nomad Visa Tab Integration**: Ensure the new Digital Nomad Visa tab integrates seamlessly with existing tab navigation, maintains consistent styling with other service categories, and provides smooth responsive behavior across all devices
 - **Deployment Compatibility**: Verify the application compiles and deploys without backend artifact errors
 
 ## Content Language

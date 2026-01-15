@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { GraduationCap, Briefcase, TrendingUp, CheckCircle2, FileText, Calendar, Euro, Plane, Wallet, Globe, Award } from 'lucide-react';
+import { GraduationCap, Briefcase, TrendingUp, CheckCircle2, FileText, Calendar, Euro, Plane, Wallet, Globe, Award, Laptop } from 'lucide-react';
 
 export function ProductOffering() {
   return (
@@ -20,7 +20,7 @@ export function ProductOffering() {
         </div>
 
         <Tabs defaultValue="student" className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 h-auto p-1 bg-muted">
+          <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-muted">
             <TabsTrigger value="student" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
               <GraduationCap className="h-5 w-5 mr-2" />
               <span className="hidden sm:inline">Student Services</span>
@@ -30,6 +30,11 @@ export function ProductOffering() {
               <Briefcase className="h-5 w-5 mr-2" />
               <span className="hidden sm:inline">Professional Services</span>
               <span className="sm:hidden">Professional</span>
+            </TabsTrigger>
+            <TabsTrigger value="digital-nomad" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
+              <Laptop className="h-5 w-5 mr-2" />
+              <span className="hidden sm:inline">Digital Nomad Visa</span>
+              <span className="sm:hidden">Digital Nomad</span>
             </TabsTrigger>
             <TabsTrigger value="investment" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-3">
               <TrendingUp className="h-5 w-5 mr-2" />
@@ -759,7 +764,7 @@ export function ProductOffering() {
                           <h5 className="text-sm font-semibold mb-2">Closing Note</h5>
                           <p className="text-sm text-muted-foreground">
                             This visa pathway is ideal for Indian professionals looking to explore Germany's dynamic job market. 
-                            Shivarita Global provides comprehensive assistance with documentation preparation, blocked account setup, 
+                            Shivarita Global Consultancy provides comprehensive assistance with documentation preparation, blocked account setup, 
                             and embassy interview preparation to ensure your successful application for the Chancenkarte.
                           </p>
                         </div>
@@ -907,6 +912,521 @@ export function ProductOffering() {
                   <h4 className="font-semibold text-lg mb-2">Key Programs</h4>
                   <p className="text-muted-foreground text-sm">
                     Skilled Worker (EU Blue Card), Job Seeker Visa and Chancenkarte, Digital Nomad Visa, Golden Visa
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="digital-nomad" className="mt-8">
+            <Card className="border-primary/20">
+              <CardHeader>
+                <div className="flex items-center space-x-4">
+                  <div className="bg-primary/10 p-4 rounded-xl">
+                    <Laptop className="h-8 w-8 text-primary" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl md:text-3xl">Digital Nomad Visa</CardTitle>
+                    <p className="text-muted-foreground mt-1">
+                      Work remotely while exploring Europe's vibrant destinations
+                    </p>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-muted-foreground leading-relaxed">
+                  Digital Nomad Visas are revolutionizing the way remote workers experience the world. These specialized visas 
+                  allow you to live in stunning European destinations while maintaining your career with employers or clients 
+                  based anywhere in the world. Shivarita Global Consultancy guides you through every step of securing your 
+                  digital nomad visa.
+                </p>
+
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value="what-is-digital-nomad">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <Globe className="h-5 w-5 text-primary" />
+                        <span>What is a Digital Nomad Visa?</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          A Digital Nomad Visa is a special residence permit designed for remote workers, freelancers, and 
+                          location-independent professionals who wish to live in a foreign country while working for employers 
+                          or clients based outside that country. Unlike traditional work visas, digital nomad visas don't require 
+                          a local job offer or employer sponsorship.
+                        </p>
+                        
+                        <h4 className="font-semibold text-base mt-4">Key Features</h4>
+                        <ul className="space-y-2">
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Work remotely for non-local employers or clients</span>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Live legally in your chosen European destination</span>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Typically valid for 6-12 months, often renewable</span>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">No local employer sponsorship required</span>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <span className="text-sm">Access to local amenities and services</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="eligibility-requirements">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <FileText className="h-5 w-5 text-primary" />
+                        <span>Eligibility Requirements</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <h4 className="font-semibold text-base">General Requirements</h4>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          While specific requirements vary by country, most digital nomad visa programs share common eligibility criteria:
+                        </p>
+                        
+                        <ul className="space-y-2">
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Remote Employment or Freelance Work</p>
+                              <p className="text-sm text-muted-foreground">Proof of employment with a company outside the host country, or evidence of freelance/self-employment with international clients</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Minimum Income Threshold</p>
+                              <p className="text-sm text-muted-foreground">Typically €2,000-€3,500 per month, varies by country and cost of living</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Health Insurance</p>
+                              <p className="text-sm text-muted-foreground">Comprehensive health insurance coverage valid in the host country</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Valid Passport</p>
+                              <p className="text-sm text-muted-foreground">Passport valid for at least 6 months beyond intended stay</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Clean Criminal Record</p>
+                              <p className="text-sm text-muted-foreground">Background check or police clearance certificate</p>
+                            </div>
+                          </li>
+                          <li className="flex items-start space-x-2">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Proof of Accommodation</p>
+                              <p className="text-sm text-muted-foreground">Rental agreement or proof of accommodation in the host country</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="country-programs">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <Plane className="h-5 w-5 text-primary" />
+                        <span>European Digital Nomad Programs</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Several European countries now offer dedicated digital nomad visa programs. Here's a comprehensive overview 
+                          of the most popular destinations:
+                        </p>
+
+                        <div className="space-y-4">
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Portugal</span>
+                              D8 Digital Nomad Visa
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €3,280 per month (4x Portuguese minimum wage)</li>
+                              <li>• Valid for 12 months, renewable for up to 5 years</li>
+                              <li>• Path to permanent residence after 5 years</li>
+                              <li>• Family members can be included</li>
+                              <li>• Processing time: 2-3 months</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Spain</span>
+                              Digital Nomad Visa (Non-Lucrative Visa)
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €2,400 per month</li>
+                              <li>• Valid for 12 months, renewable for 2 years</li>
+                              <li>• Special tax regime for digital nomads (Beckham Law)</li>
+                              <li>• Can work for Spanish companies up to 20% of income</li>
+                              <li>• Processing time: 1-3 months</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Estonia</span>
+                              Digital Nomad Visa
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €4,500 per month (gross)</li>
+                              <li>• Valid for 12 months, non-renewable</li>
+                              <li>• Fast processing (15-30 days)</li>
+                              <li>• Access to e-Residency benefits</li>
+                              <li>• Ideal for tech professionals</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Croatia</span>
+                              Digital Nomad Residence Permit
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €2,870 per month</li>
+                              <li>• Valid for 12 months, renewable for another 12 months</li>
+                              <li>• Tax-free for first year</li>
+                              <li>• Beautiful coastal locations</li>
+                              <li>• Processing time: 30 days</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Greece</span>
+                              Digital Nomad Visa
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €3,500 per month</li>
+                              <li>• Valid for 12 months, renewable for 2 years</li>
+                              <li>• 50% tax reduction on foreign income</li>
+                              <li>• Access to Greek islands and mainland</li>
+                              <li>• Processing time: 1-2 months</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Malta</span>
+                              Nomad Residence Permit
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €2,700 per month (€3,200 with dependents)</li>
+                              <li>• Valid for 12 months, renewable for up to 3 years</li>
+                              <li>• English-speaking environment</li>
+                              <li>• Mediterranean lifestyle</li>
+                              <li>• Processing time: 4-6 weeks</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Italy</span>
+                              Self-Employment Visa (for Digital Nomads)
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €8,500 per year (varies by region)</li>
+                              <li>• Valid for 12 months, renewable</li>
+                              <li>• Rich cultural heritage and lifestyle</li>
+                              <li>• Path to permanent residence</li>
+                              <li>• Processing time: 2-4 months</li>
+                            </ul>
+                          </div>
+
+                          <div className="bg-background p-4 rounded-lg">
+                            <h5 className="font-semibold text-sm mb-2 flex items-center">
+                              <span className="bg-primary/10 text-primary px-2 py-1 rounded text-xs mr-2">Czech Republic</span>
+                              Freelance Visa (Živnostenský list)
+                            </h5>
+                            <ul className="space-y-1 text-sm text-muted-foreground ml-4">
+                              <li>• Minimum income: €1,500-€2,000 per month</li>
+                              <li>• Valid for 12 months, renewable</li>
+                              <li>• Central European location</li>
+                              <li>• Affordable cost of living</li>
+                              <li>• Processing time: 2-3 months</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mt-4">
+                          <p className="text-sm font-semibold mb-2">Choosing the Right Destination</p>
+                          <p className="text-sm text-muted-foreground">
+                            Shivarita Global Consultancy helps you evaluate each program based on your income level, lifestyle preferences, 
+                            tax considerations, and long-term goals to find the perfect match for your digital nomad journey.
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="required-documents">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <FileText className="h-5 w-5 text-primary" />
+                        <span>Required Documents</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <h4 className="font-semibold text-base">Standard Documentation</h4>
+                        <p className="text-sm text-muted-foreground mb-3">
+                          While requirements vary by country, most digital nomad visa applications require the following documents:
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-3">
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Valid passport (6+ months validity)</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Completed visa application form</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Passport-sized photographs</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Proof of remote employment or freelance contracts</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Bank statements (last 3-6 months)</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Proof of income (pay slips, tax returns, invoices)</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Health insurance certificate</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Proof of accommodation (rental agreement)</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Clean criminal record certificate</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• CV/Resume</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Cover letter explaining remote work arrangement</p>
+                          </div>
+                          <div className="bg-background p-3 rounded-lg">
+                            <p className="text-sm">• Company registration documents (for freelancers)</p>
+                          </div>
+                        </div>
+
+                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mt-4">
+                          <p className="text-sm font-semibold mb-2">Document Preparation Support</p>
+                          <p className="text-sm text-muted-foreground">
+                            Shivarita Global Consultancy provides comprehensive document preparation services, ensuring all your 
+                            paperwork meets the specific requirements of your chosen destination country.
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="benefits">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle2 className="h-5 w-5 text-primary" />
+                        <span>Benefits of Digital Nomad Visas</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <h4 className="font-semibold text-base">Why Choose a Digital Nomad Visa?</h4>
+                        
+                        <div className="grid md:grid-cols-2 gap-4">
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Legal Residence</p>
+                              <p className="text-xs text-muted-foreground">Live legally in your chosen country without tourist visa limitations</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Extended Stay</p>
+                              <p className="text-xs text-muted-foreground">Stay for 6-12 months or longer with renewals</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Work Flexibility</p>
+                              <p className="text-xs text-muted-foreground">Continue working for your current employer or clients</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Tax Benefits</p>
+                              <p className="text-xs text-muted-foreground">Many countries offer favorable tax treatment for digital nomads</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Cultural Immersion</p>
+                              <p className="text-xs text-muted-foreground">Experience local culture beyond typical tourist experiences</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Schengen Access</p>
+                              <p className="text-xs text-muted-foreground">Travel freely within Schengen Area countries</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Family Inclusion</p>
+                              <p className="text-xs text-muted-foreground">Many programs allow family members to join</p>
+                            </div>
+                          </div>
+                          <div className="flex items-start space-x-3 bg-background p-4 rounded-lg">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="text-sm font-medium">Path to Residency</p>
+                              <p className="text-xs text-muted-foreground">Some visas offer pathways to permanent residence</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+
+                  <AccordionItem value="how-we-help">
+                    <AccordionTrigger className="text-lg font-semibold">
+                      <div className="flex items-center space-x-2">
+                        <Award className="h-5 w-5 text-primary" />
+                        <span>How Shivarita Global Consultancy Helps</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="space-y-4 pt-4">
+                      <div className="bg-muted/50 p-6 rounded-lg space-y-4">
+                        <p className="text-sm text-muted-foreground mb-4">
+                          Navigating digital nomad visa requirements can be complex. Shivarita Global Consultancy provides 
+                          end-to-end support to make your transition seamless:
+                        </p>
+
+                        <div className="space-y-3">
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Destination Assessment</p>
+                              <p className="text-sm text-muted-foreground">We help you choose the best country based on your income, lifestyle, and career goals</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Eligibility Evaluation</p>
+                              <p className="text-sm text-muted-foreground">Comprehensive assessment of your qualifications and income requirements</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Document Preparation</p>
+                              <p className="text-sm text-muted-foreground">Complete assistance with gathering, preparing, and verifying all required documents</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Application Submission</p>
+                              <p className="text-sm text-muted-foreground">Expert guidance through the application process and submission</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Health Insurance Coordination</p>
+                              <p className="text-sm text-muted-foreground">Help securing appropriate health insurance coverage</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Accommodation Support</p>
+                              <p className="text-sm text-muted-foreground">Guidance on finding and securing suitable accommodation</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Tax Consultation</p>
+                              <p className="text-sm text-muted-foreground">Basic guidance on tax implications and requirements</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Post-Arrival Support</p>
+                              <p className="text-sm text-muted-foreground">Assistance with registration, banking, and settling in your new location</p>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start space-x-3">
+                            <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                            <div>
+                              <p className="font-medium text-sm">Renewal Assistance</p>
+                              <p className="text-sm text-muted-foreground">Support with visa renewals and extensions when applicable</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mt-4">
+                          <p className="text-sm font-semibold mb-2">Your Digital Nomad Journey Starts Here</p>
+                          <p className="text-sm text-muted-foreground">
+                            With Shivarita Global Consultancy's expertise, you can focus on your work and adventures while we handle 
+                            the complexities of your digital nomad visa application. Contact us today for a free consultation!
+                          </p>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+
+                <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
+                  <h4 className="font-semibold text-lg mb-2">Popular Digital Nomad Destinations</h4>
+                  <p className="text-muted-foreground text-sm">
+                    Portugal, Spain, Estonia, Croatia, Greece, Malta, Italy, Czech Republic, and more
                   </p>
                 </div>
               </CardContent>
