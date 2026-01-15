@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        
+        /* Dark blue, purple, and teal green theme */
+        --background: 0.12 0.08 260;
+        --foreground: 0.96 0.01 260;
+        --card: 0.18 0.09 265;
+        --card-foreground: 0.96 0.01 260;
+        --popover: 0.18 0.09 265;
+        --popover-foreground: 0.96 0.01 260;
+        
+        /* Primary: Deep blue with purple undertones */
+        --primary: 0.65 0.24 270;
+        --primary-foreground: 0.98 0.005 260;
+        
+        /* Secondary: Rich purple */
+        --secondary: 0.55 0.22 300;
+        --secondary-foreground: 0.98 0.005 260;
+        
+        /* Muted: Dark blue-purple */
+        --muted: 0.25 0.10 270;
+        --muted-foreground: 0.72 0.05 270;
+        
+        /* Accent: Vibrant teal green */
+        --accent: 0.70 0.20 180;
+        --accent-foreground: 0.98 0.005 260;
+        
+        --destructive: 0.60 0.22 27;
+        --destructive-foreground: 0.98 0.005 260;
+        
+        /* Borders and inputs with purple-blue tint */
+        --border: 0.30 0.10 270;
+        --input: 0.30 0.10 270;
+        --ring: 0.65 0.24 270;
+        
+        /* Chart colors - vibrant blue, purple, teal palette */
+        --chart-1: 0.65 0.24 270;
+        --chart-2: 0.55 0.22 300;
+        --chart-3: 0.70 0.20 180;
+        --chart-4: 0.60 0.23 250;
+        --chart-5: 0.68 0.21 200;
+        
+        --sidebar: 0.15 0.08 265;
+        --sidebar-foreground: 0.96 0.01 260;
+        --sidebar-primary: 0.65 0.24 270;
+        --sidebar-primary-foreground: 0.98 0.005 260;
+        --sidebar-accent: 0.25 0.10 270;
+        --sidebar-accent-foreground: 0.96 0.01 260;
+        --sidebar-border: 0.30 0.10 270;
+        --sidebar-ring: 0.65 0.24 270;
+    }
+
+    .dark {
+        /* Dark mode uses same dark blue, purple, teal theme */
+        --background: 0.12 0.08 260;
+        --foreground: 0.96 0.01 260;
+        --card: 0.18 0.09 265;
+        --card-foreground: 0.96 0.01 260;
+        --popover: 0.18 0.09 265;
+        --popover-foreground: 0.96 0.01 260;
+        
+        /* Primary: Deep blue with purple undertones */
+        --primary: 0.65 0.24 270;
+        --primary-foreground: 0.98 0.005 260;
+        
+        /* Secondary: Rich purple */
+        --secondary: 0.55 0.22 300;
+        --secondary-foreground: 0.98 0.005 260;
+        
+        --muted: 0.25 0.10 270;
+        --muted-foreground: 0.72 0.05 270;
+        
+        /* Accent: Vibrant teal green */
+        --accent: 0.70 0.20 180;
+        --accent-foreground: 0.98 0.005 260;
+        
+        --destructive: 0.60 0.22 27;
+        --destructive-foreground: 0.98 0.005 260;
+        
+        --border: 0.30 0.10 270;
+        --input: 0.30 0.10 270;
+        --ring: 0.65 0.24 270;
+        
+        /* Chart colors for dark mode */
+        --chart-1: 0.65 0.24 270;
+        --chart-2: 0.55 0.22 300;
+        --chart-3: 0.70 0.20 180;
+        --chart-4: 0.60 0.23 250;
+        --chart-5: 0.68 0.21 200;
+        
+        --sidebar: 0.15 0.08 265;
+        --sidebar-foreground: 0.96 0.01 260;
+        --sidebar-primary: 0.65 0.24 270;
+        --sidebar-primary-foreground: 0.98 0.005 260;
+        --sidebar-accent: 0.25 0.10 270;
+        --sidebar-accent-foreground: 0.96 0.01 260;
+        --sidebar-border: 0.30 0.10 270;
+        --sidebar-ring: 0.65 0.24 270;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
