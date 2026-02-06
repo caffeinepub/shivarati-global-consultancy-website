@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T07:14:52.548Z",
+  "generatedAt": "2026-02-06T07:58:34.329Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,36 +12,34 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In `frontend/src`, add a `.well-known` directory (if it does not already exist) and create a file named `ic-domains` (no file extension) at `frontend/src/.well-known/ic-domains` with the exact content: `\"shivaritaglobal.com\"`.",
+        "summary": "On the Contact page CTA section, update the primary button label text from \"Book Now\" to \"Chat Now\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/.well-known/ic-domains"
+          "frontend/src/components/ContactSection.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/.well-known/ic-domains"
+          "frontend/src/components/ContactSection.tsx"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "In `frontend/src`, create a file named `ic-assets.json` with the exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` (including brackets/quotes exactly as provided).",
+        "summary": "On the Contact page CTA section, update the secondary button label text from \"Send Message Instead\" to \"Email Us\".",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/ic-assets.json"
+          "frontend/src/components/ContactSection.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/ic-assets.json"
+          "frontend/src/components/ContactSection.tsx"
         ]
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "caffeine.lock.json",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/.well-known/ic-domains",
-    "frontend/src/ic-assets.json",
+    "frontend/src/components/ContactSection.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

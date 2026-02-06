@@ -1,36 +1,35 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add IC custom domain asset files for shivaritaglobal.com",
+  "title": "Update Contact page CTA button labels",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Add .well-known/ic-domains file in frontend/src with the specified custom domain value.",
+      "summary": "Change the Contact page CTA primary button label from \"Book Now\" to \"Chat Now\" without altering behavior.",
       "acceptanceCriteria": [
-        "A file exists at `frontend/src/.well-known/ic-domains`.",
-        "The file has no extension and is named exactly `ic-domains`.",
-        "The file content is exactly `\"shivaritaglobal.com\"` (including the quotes)."
+        "When viewing the Contact page, the CTA button that previously displayed \"Book Now\" now displays \"Chat Now\".",
+        "No other button labels or headings are changed as part of this update."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/.well-known/ic-domains",
-          "operation": "create",
-          "description": "Create `frontend/src/.well-known` if missing and add the `ic-domains` file (no extension) with exact content: \"shivaritaglobal.com\" (including quotes)."
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "In the CTA button group within the Contact page CTA section, update the primary Button label text from \"Book Now\" to \"Chat Now\" only, keeping the existing click handler and styling unchanged."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add ic-assets.json in frontend/src with the exact asset configuration to include .well-known.",
+      "summary": "Change the Contact page CTA secondary button label from \"Send Message Instead\" to \"Email Us\" without altering behavior.",
       "acceptanceCriteria": [
-        "A file exists at `frontend/src/ic-assets.json`.",
-        "The file content matches exactly the user-provided text: `[{\"match\":.well-known\",\"ignore\":false}]`."
+        "When viewing the Contact page, the secondary CTA button that previously displayed \"Send Message Instead\" now displays \"Email Us\".",
+        "The button’s behavior (scrolling to the contact form) remains unchanged unless explicitly updated in a future request."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/ic-assets.json",
-          "operation": "create",
-          "description": "Create `frontend/src/ic-assets.json` with the exact contents `[{\"match\":.well-known\",\"ignore\":false}]` (match characters exactly as provided, including brackets/quotes)."
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "In the CTA button group within the Contact page CTA section, update the secondary Button label text from \"Send Message Instead\" to \"Email Us\" only, keeping the existing scroll-into-view behavior and styling unchanged."
         }
       ]
     }

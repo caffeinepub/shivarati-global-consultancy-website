@@ -201,13 +201,13 @@ Message: ${formData.message}
             <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" onClick={handleBookConsultation} className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
                 <Calendar className="mr-2 h-5 w-5" />
-                Book Now
+                Chat Now
               </Button>
               <Button size="lg" variant="outline" onClick={() => {
                 const element = document.getElementById('contact-form');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }} className="border-primary/30 hover:bg-primary/10">
-                Send Message Instead
+                Email Us
               </Button>
             </div>
             <p className="text-sm text-muted-foreground mt-4">

@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-frontend-src-add-a-well-known-directory-if-it-does-not-already-exist-and-create-a-file-named-ic-domains-no-file-extension-at-frontend-src-well-known-ic-domains-with-the-exact-content-shivaritaglobal-com",
-      "featureTitle": "In `frontend/src`, add a `.well-known` directory (if it does not already exist) and create a file named `ic-domains` (no file extension) at `frontend/src/.well-known/ic-domains` with the exact content: `\"shivaritaglobal.com\"`.",
+      "featureId": "feature-on-the-contact-page-cta-section-update-the-primary-button-label-text-from-book-now-to-chat-now",
+      "featureTitle": "On the Contact page CTA section, update the primary button label text from \"Book Now\" to \"Chat Now\".",
       "files": [
-        "frontend/src/.well-known/ic-domains"
+        "frontend/src/components/ContactSection.tsx"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -22,10 +22,10 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-in-frontend-src-create-a-file-named-ic-assets-json-with-the-exact-contents-match-well-known-ignore-false-including-brackets-quotes-exactly-as-provided",
-      "featureTitle": "In `frontend/src`, create a file named `ic-assets.json` with the exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` (including brackets/quotes exactly as provided).",
+      "featureId": "feature-on-the-contact-page-cta-section-update-the-secondary-button-label-text-from-send-message-instead-to-email-us",
+      "featureTitle": "On the Contact page CTA section, update the secondary button label text from \"Send Message Instead\" to \"Email Us\".",
       "files": [
-        "frontend/src/ic-assets.json"
+        "frontend/src/components/ContactSection.tsx"
       ],
       "components": [
         "blob-storage@4.0.0",

@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Add required Internet Computer custom domain asset files for shivaritaglobal.com in the frontend source.
+**Goal:** Update the Contact page CTA button label text to match the requested wording.
 
 **Planned changes:**
-- Add `frontend/src/.well-known/ic-domains` (no extension) containing exactly `"shivaritaglobal.com"`.
-- Add `frontend/src/ic-assets.json` containing exactly `[{\"match\":.well-known\",\"ignore\":false}]`.
+- Change the Contact page CTA primary button label from "Book Now" to "Chat Now".
+- Change the Contact page CTA secondary button label from "Send Message Instead" to "Email Us".
 
-**User-visible outcome:** The frontend includes the required `.well-known` domain asset files to support connecting the custom domain `shivaritaglobal.com`.
+**User-visible outcome:** On the Contact page, the CTA buttons display "Chat Now" and "Email Us" without any change to their existing behavior.
