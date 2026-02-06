@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-on-the-contact-page-cta-section-update-the-primary-button-label-text-from-book-now-to-chat-now",
-      "featureTitle": "On the Contact page CTA section, update the primary button label text from \"Book Now\" to \"Chat Now\".",
+      "featureId": "feature-update-the-global-site-header-so-that-it-automatically-hides-when-the-user-scrolls-down-the-page-and-reappears-when-the-user-hovers-near-the-very-top-edge-of-the-viewport",
+      "featureTitle": "Update the global site header so that it automatically hides when the user scrolls down the page, and reappears when the user hovers near the very top edge of the viewport.",
       "files": [
-        "frontend/src/components/ContactSection.tsx"
+        "frontend/src/components/Header.tsx"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -18,26 +18,6 @@
       ],
       "testIds": [
         "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-on-the-contact-page-cta-section-update-the-secondary-button-label-text-from-send-message-instead-to-email-us",
-      "featureTitle": "On the Contact page CTA section, update the secondary button label text from \"Send Message Instead\" to \"Email Us\".",
-      "files": [
-        "frontend/src/components/ContactSection.tsx"
-      ],
-      "components": [
-        "blob-storage@4.0.0",
-        "http-outcalls@3.0.0",
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
       ],
       "confidence": "high"
     }

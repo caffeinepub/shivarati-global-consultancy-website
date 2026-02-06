@@ -1,35 +1,25 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Update Contact page CTA button labels",
+  "title": "Auto-hide global header on scroll with top-edge hover reveal",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Change the Contact page CTA primary button label from \"Book Now\" to \"Chat Now\" without altering behavior.",
+      "summary": "Make the fixed global header slide out on scroll down and reappear via top-edge hover (desktop) or scroll-up direction (touch/mobile), while keeping it visible when the mobile menu is open.",
       "acceptanceCriteria": [
-        "When viewing the Contact page, the CTA button that previously displayed \"Book Now\" now displays \"Chat Now\".",
-        "No other button labels or headings are changed as part of this update."
+        "When the user scrolls downward past a small threshold (e.g., >20px), the header transitions out of view (e.g., slides up) instead of remaining fixed on-screen.",
+        "When the user moves the mouse to the top edge of the viewport (a thin hover-reveal zone), the header becomes visible again while the pointer remains in that top area (or while hovering the header).",
+        "When the user scrolls back to the very top of the page (scrollY === 0), the header is visible.",
+        "The hide/reveal behavior uses smooth transitions and does not cause layout shift/jump in page content.",
+        "On touch/mobile devices (no hover), the header still becomes visible when the user scrolls up (scroll direction up) and hides when scrolling down, so navigation remains accessible without hover.",
+        "If the mobile navigation sheet/menu is open, the header must remain visible and not auto-hide until the menu is closed.",
+        "Implementation is contained to existing frontend components (primarily `frontend/src/components/Header.tsx`) and does not require backend changes."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ContactSection.tsx",
+          "path": "frontend/src/components/Header.tsx",
           "operation": "modify",
-          "description": "In the CTA button group within the Contact page CTA section, update the primary Button label text from \"Book Now\" to \"Chat Now\" only, keeping the existing click handler and styling unchanged."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Change the Contact page CTA secondary button label from \"Send Message Instead\" to \"Email Us\" without altering behavior.",
-      "acceptanceCriteria": [
-        "When viewing the Contact page, the secondary CTA button that previously displayed \"Send Message Instead\" now displays \"Email Us\".",
-        "The button’s behavior (scrolling to the contact form) remains unchanged unless explicitly updated in a future request."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/ContactSection.tsx",
-          "operation": "modify",
-          "description": "In the CTA button group within the Contact page CTA section, update the secondary Button label text from \"Send Message Instead\" to \"Email Us\" only, keeping the existing scroll-into-view behavior and styling unchanged."
+          "description": "Implement header visibility state driven by scroll position and scroll direction (hide on downward scroll past threshold, show at scrollY===0 and on upward scroll for touch/mobile), add a thin fixed top-edge hover-reveal zone (desktop hover-capable pointers) that temporarily reveals the header while hovered, ensure the header stays visible while the mobile Sheet menu is open, and apply translate/transition classes so the header slides without causing layout shift."
         }
       ]
     }

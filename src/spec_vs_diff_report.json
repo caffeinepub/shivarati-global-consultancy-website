@@ -1,44 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T07:58:34.327Z",
-  "summary": "REQ-1 and REQ-2 appear to be implemented (CTA button labels updated to \"Chat Now\" and \"Email Us\" in the Contact section), but the diff also includes additional Contact form validation/behavior changes and unrelated metadata/documentation updates that were not requested and may violate the constraint to keep changes limited to Contact page UI text.",
+  "generatedAt": "2026-02-06T08:06:14.081Z",
+  "summary": "REQ-1 appears implemented in Header.tsx: header hides on downward scroll past a threshold, shows on scroll up or when at top, and can be revealed via a thin top-edge hover zone; header remains visible while the mobile menu is open. Additional non-requested metadata/documentation files were updated.",
   "missing_requirements": [],
   "hallucinated_features": [
     {
-      "description": "Added/expanded Contact form validation (email/phone validation with specific rules) and related toast error messaging",
-      "reason": "BuildRequest only asked to change two CTA button label strings; it explicitly constrained changes to Contact page UI text and did not request validation/error handling changes.",
+      "description": "Updated/added project tracking metadata about the request (project_state.json)",
+      "reason": "BuildRequest only asks for frontend header behavior changes; it does not request updating project tracking JSON.",
       "evidence": [
-        "frontend/src/components/ContactSection.tsx"
+        "project_state.json"
       ]
     },
     {
-      "description": "Changed/implemented submission behavior to open mail client (mailto) and WhatsApp with prefilled messages, including window.open calls and a delayed WhatsApp open",
-      "reason": "Non-goal states not to change any Contact page button actions/links/behavior; BuildRequest only requested label text changes.",
-      "evidence": [
-        "frontend/src/components/ContactSection.tsx"
-      ]
-    },
-    {
-      "description": "Added/changed confirmation dialog / popup messaging (e.g., \"Thank You for sharing the required details, you will be touched shortly.\")",
-      "reason": "Not requested; requirement scope limited to updating two CTA button labels only.",
+      "description": "Updated a generated documentation/summary file describing many components (frontend-file-summaries.txt)",
+      "reason": "BuildRequest does not request updating documentation or summary files; only implementing the header behavior change.",
       "evidence": [
         "frontend-file-summaries.txt"
       ]
-    },
-    {
-      "description": "Updated/modified repository documentation/state tracking files (frontend-file-summaries.txt and project_state.json)",
-      "reason": "Not requested by the BuildRequest; changes were supposed to be limited to Contact page UI text.",
-      "evidence": [
-        "frontend-file-summaries.txt",
-        "project_state.json"
-      ]
     }
   ],
-  "confidence": 0.68,
+  "confidence": 0.84,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/Header.tsx",
     "project_state.json"
   ]
 }

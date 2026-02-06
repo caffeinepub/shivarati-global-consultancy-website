@@ -1,24 +1,16 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
+  "summary": "Website project with iterative deployments; next change is improving header band behavior on scroll/hover.",
   "architectural_notes": [],
   "known_issues": [],
   "isFixRequest": false,
   "existing_features": [
     {
-      "id": "feature-on-the-contact-page-cta-section-update-the-primary-button-label-text-from-book-now-to-chat-now",
-      "title": "On the Contact page CTA section, update the primary button label text from \"Book Now\" to \"Chat Now\".",
+      "id": "feature-update-the-global-site-header-so-that-it-automatically-hides-when-the-user-scrolls-down-the-page-and-reappears-when-the-user-hovers-near-the-very-top-edge-of-the-viewport",
+      "title": "Update the global site header so that it automatically hides when the user scrolls down the page, and reappears when the user hovers near the very top edge of the viewport.",
       "reqIds": [
         "REQ-1"
-      ],
-      "version": 1
-    },
-    {
-      "id": "feature-on-the-contact-page-cta-section-update-the-secondary-button-label-text-from-send-message-instead-to-email-us",
-      "title": "On the Contact page CTA section, update the secondary button label text from \"Send Message Instead\" to \"Email Us\".",
-      "reqIds": [
-        "REQ-2"
       ],
       "version": 1
     }
@@ -26,12 +18,13 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "Update Contact page CTA text: change \"Book Now\" to \"Chat Now\" and \"Send Message Instead\" to \"Email Us\"",
+      "summary": "Auto-hide the header band when the user scrolls down; reveal it when the user hovers at the top of the page.",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "projectName": "Update Contact page CTA button text",
+  "gameProjectType": "none",
+  "projectName": "Auto-hide header on scroll down and reveal on top hover",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

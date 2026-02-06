@@ -1,63 +1,42 @@
 {
   "kind": "build_request",
-  "title": "Update Contact page CTA button text",
+  "title": "Auto-hide header on scroll down and reveal on top hover",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "On the Contact page CTA section, update the primary button label text from \"Book Now\" to \"Chat Now\".",
+      "text": "Update the global site header so that it automatically hides when the user scrolls down the page, and reappears when the user hovers near the very top edge of the viewport.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "user-1"
         ],
         "quotes": [
-          "In the Contact page, change the word \"Book Now\" to \"Chat Now\""
+          "When the user scrolls down, auto hide the header band unless the user hover on the top"
         ]
       },
       "acceptanceCriteria": [
-        "When viewing the Contact page, the CTA button that previously displayed \"Book Now\" now displays \"Chat Now\".",
-        "No other button labels or headings are changed as part of this update."
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "On the Contact page CTA section, update the secondary button label text from \"Send Message Instead\" to \"Email Us\".",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "and change \"Send Message Instead\" to \"Email Us\""
-        ]
-      },
-      "acceptanceCriteria": [
-        "When viewing the Contact page, the secondary CTA button that previously displayed \"Send Message Instead\" now displays \"Email Us\".",
-        "The button’s behavior (scrolling to the contact form) remains unchanged unless explicitly updated in a future request."
+        "When the user scrolls downward past a small threshold (e.g., >20px), the header transitions out of view (e.g., slides up) instead of remaining fixed on-screen.",
+        "When the user moves the mouse to the top edge of the viewport (a thin hover-reveal zone), the header becomes visible again while the pointer remains in that top area (or while hovering the header).",
+        "When the user scrolls back to the very top of the page (scrollY === 0), the header is visible.",
+        "The hide/reveal behavior uses smooth transitions and does not cause layout shift/jump in page content.",
+        "On touch/mobile devices (no hover), the header still becomes visible when the user scrolls up (scroll direction up) and hides when scrolling down, so navigation remains accessible without hover.",
+        "If the mobile navigation sheet/menu is open, the header must remain visible and not auto-hide until the menu is closed.",
+        "Implementation is contained to existing frontend components (primarily `frontend/src/components/Header.tsx`) and does not require backend changes."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui (read-only).",
-    "Keep changes limited to the Contact page UI text; no backend changes are required."
+    "Do not modify any files under `frontend/src/components/ui` (compose existing UI components instead).",
+    "Do not modify files listed as immutable in SYSTEM_CONTEXT (e.g., `frontend/src/main.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/hooks/useInternetIdentity.ts/tsx`)."
   ],
   "nonGoals": [
-    "Changing any Contact page button actions/links (e.g., WhatsApp or scrolling behavior).",
-    "Updating copy on other pages or components beyond the two specified strings."
+    "Adding new navigation items or changing existing routes.",
+    "Changing header branding/logo assets or header text.",
+    "Implementing real-time features or backend-driven behavior for header visibility."
   ],
   "imageRequirements": {
     "required": [],
     "edits": []
-  },
-  "userProfileUpdate": {
-    "goalsToAdd": [],
-    "goalsToRemove": [],
-    "preferencesToAdd": [],
-    "preferencesToRemove": [],
-    "miscToAdd": [],
-    "miscToRemove": [],
-    "fieldsToSet": {},
-    "fieldsToDelete": []
   }
 }
