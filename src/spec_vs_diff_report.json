@@ -1,0 +1,47 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T07:14:52.545Z",
+  "summary": "REQ-1 and REQ-2 files were added, but both requirements specify exact file contents; the diff shows content deviations (extra trailing newline for REQ-1 and different quoting for REQ-2). Additionally, unrelated metadata files were modified without being requested.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Create `frontend/src/.well-known/ic-domains` (no extension) with exact content: \"shivaritaglobal.com\" (including quotes).",
+      "reason": "The file exists, but the diff shows an extra trailing newline/blank line; the requirement demands the content match exactly.",
+      "evidence": [
+        "frontend/src/.well-known/ic-domains"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Create `frontend/src/ic-assets.json` with exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` exactly as provided.",
+      "reason": "The file content in the diff is `[{\"match\":\".well-known\",\"ignore\":false}]`, which does not match the exact text required (it adds a quote before `.well-known` and differs from the provided string).",
+      "evidence": [
+        "frontend/src/ic-assets.json"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Modified `project_state.json` to add/track feature requests and project summary metadata.",
+      "reason": "Not requested by the BuildRequest; requirements only asked to add two frontend asset files and explicitly included constraints/non-goals unrelated to project metadata changes.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Modified `frontend-file-summaries.txt` (project documentation/index of frontend files).",
+      "reason": "Not requested by the BuildRequest; only `.well-known/ic-domains` and `ic-assets.json` additions were required.",
+      "evidence": [
+        "frontend-file-summaries.txt"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/.well-known/ic-domains",
+    "frontend/src/ic-assets.json",
+    "project_state.json"
+  ]
+}

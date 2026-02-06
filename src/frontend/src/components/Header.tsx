@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Link, useLocation } from '@tanstack/react-router';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,54 +17,57 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-      setIsOpen(false);
-    }
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   const navItems = [
-    { label: 'About Us', id: 'about' },
-    { label: 'Services', id: 'categories' },
-    { label: 'Products', id: 'products' },
-    { label: 'Why Choose Us', id: 'why-choose-us' },
-    { label: 'Contact', id: 'contact' }
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/about' },
+    { label: 'Product Offerings', path: '/product-offerings' },
+    { label: 'GDPR', path: '/gdpr' },
+    { label: 'Why Choose Us', path: '/why-choose-us' },
+    { label: 'Contact', path: '/contact' }
   ];
+
+  const isActivePath = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/95 backdrop-blur-md shadow-md' : 'bg-transparent'
+        isScrolled ? 'bg-background/95 backdrop-blur-md shadow-md' : 'bg-background/80 backdrop-blur-sm'
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20 md:h-24">
-          <div className="flex items-center">
+        <div className="flex items-center justify-between h-24 md:h-28">
+          <Link to="/" className="flex items-center gap-4">
             <img 
-              src="/assets/SGC-Final-Logo.png" 
+              src="/assets/SGC-Final-Logo-1.png" 
               alt="Shivarita Global Consultancy" 
-              className="h-[60px] md:h-[80px] w-auto object-contain"
+              className="h-[72px] md:h-[96px] w-auto object-contain"
             />
-          </div>
+            <span className="text-navy-blue-shadow text-xl md:text-2xl font-bold whitespace-nowrap">
+              Shivarita Global Consultancy
+            </span>
+          </Link>
 
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Button
-                key={item.id}
-                variant="ghost"
-                onClick={() => scrollToSection(item.id)}
-                className="text-foreground hover:text-primary hover:bg-primary/10"
+              <Link
+                key={item.path}
+                to={item.path}
               >
-                {item.label}
-              </Button>
+                <Button
+                  variant="ghost"
+                  className={`text-foreground hover:text-primary hover:bg-primary/10 ${
+                    isActivePath(item.path) ? 'bg-primary/10 text-primary' : ''
+                  }`}
+                >
+                  {item.label}
+                </Button>
+              </Link>
             ))}
           </nav>
 
@@ -75,14 +80,20 @@ export function Header() {
             <SheetContent side="right" className="w-[300px]">
               <nav className="flex flex-col space-y-4 mt-8">
                 {navItems.map((item) => (
-                  <Button
-                    key={item.id}
-                    variant="ghost"
-                    onClick={() => scrollToSection(item.id)}
-                    className="justify-start text-lg"
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
                   >
-                    {item.label}
-                  </Button>
+                    <Button
+                      variant="ghost"
+                      className={`justify-start text-lg w-full ${
+                        isActivePath(item.path) ? 'bg-primary/10 text-primary' : ''
+                      }`}
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
                 ))}
               </nav>
             </SheetContent>

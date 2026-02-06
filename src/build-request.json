@@ -1,0 +1,63 @@
+{
+  "kind": "build_request",
+  "title": "Add IC custom domain asset files for shivaritaglobal.com",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "In `frontend/src`, add a `.well-known` directory (if it does not already exist) and create a file named `ic-domains` (no file extension) at `frontend/src/.well-known/ic-domains` with the exact content: `\"shivaritaglobal.com\"`.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I want to connect my custom domain. In order to do this in the front end src directory add .well-known/ic-domains which is a file with no extension. The content of the ic-domains file should be \"shivaritaglobal.com\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "A file exists at `frontend/src/.well-known/ic-domains`.",
+        "The file has no extension and is named exactly `ic-domains`.",
+        "The file content is exactly `\"shivaritaglobal.com\"` (including the quotes)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "In `frontend/src`, create a file named `ic-assets.json` with the exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` (including brackets/quotes exactly as provided).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "in the front end src directory create a file \"ic-assets.json\", the contents of that file is: '[{\"match\":.well-known\",\"ignore\":false}]\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "A file exists at `frontend/src/ic-assets.json`.",
+        "The file content matches exactly the user-provided text: `[{\"match\":.well-known\",\"ignore\":false}]`."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or `frontend/src/components/ui` (immutable paths)."
+  ],
+  "nonGoals": [
+    "Do not implement DNS configuration or automated domain verification flows inside the app.",
+    "Do not add backend changes for domain management or storage."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

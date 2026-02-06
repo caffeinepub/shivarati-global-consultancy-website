@@ -6,119 +6,143 @@
     :root {
         --radius: 0.625rem;
         
-        /* Dark blue, purple, and teal green theme */
-        --background: 0.12 0.08 260;
-        --foreground: 0.96 0.01 260;
-        --card: 0.18 0.09 265;
-        --card-foreground: 0.96 0.01 260;
-        --popover: 0.18 0.09 265;
-        --popover-foreground: 0.96 0.01 260;
+        /* Light purple gradient theme */
+        --background: 0.95 0.05 300;
+        --foreground: 0.20 0.08 280;
+        --card: 0.98 0.03 300;
+        --card-foreground: 0.20 0.08 280;
+        --popover: 0.98 0.03 300;
+        --popover-foreground: 0.20 0.08 280;
         
-        /* Primary: Deep blue with purple undertones */
-        --primary: 0.65 0.24 270;
-        --primary-foreground: 0.98 0.005 260;
+        /* Primary: Deep purple */
+        --primary: 0.55 0.22 290;
+        --primary-foreground: 0.98 0.005 300;
         
-        /* Secondary: Rich purple */
-        --secondary: 0.55 0.22 300;
-        --secondary-foreground: 0.98 0.005 260;
+        /* Secondary: Rich purple-pink */
+        --secondary: 0.60 0.20 310;
+        --secondary-foreground: 0.98 0.005 300;
         
-        /* Muted: Dark blue-purple */
-        --muted: 0.25 0.10 270;
-        --muted-foreground: 0.72 0.05 270;
+        /* Muted: Light purple-gray */
+        --muted: 0.88 0.04 300;
+        --muted-foreground: 0.45 0.08 280;
         
-        /* Accent: Vibrant teal green */
-        --accent: 0.70 0.20 180;
-        --accent-foreground: 0.98 0.005 260;
+        /* Accent: Vibrant purple */
+        --accent: 0.65 0.24 280;
+        --accent-foreground: 0.98 0.005 300;
         
         --destructive: 0.60 0.22 27;
-        --destructive-foreground: 0.98 0.005 260;
+        --destructive-foreground: 0.98 0.005 300;
         
-        /* Borders and inputs with purple-blue tint */
-        --border: 0.30 0.10 270;
-        --input: 0.30 0.10 270;
-        --ring: 0.65 0.24 270;
+        /* Borders and inputs with purple tint */
+        --border: 0.80 0.06 300;
+        --input: 0.80 0.06 300;
+        --ring: 0.55 0.22 290;
         
-        /* Chart colors - vibrant blue, purple, teal palette */
-        --chart-1: 0.65 0.24 270;
-        --chart-2: 0.55 0.22 300;
-        --chart-3: 0.70 0.20 180;
-        --chart-4: 0.60 0.23 250;
-        --chart-5: 0.68 0.21 200;
+        /* Chart colors - vibrant purple palette */
+        --chart-1: 0.55 0.22 290;
+        --chart-2: 0.60 0.20 310;
+        --chart-3: 0.65 0.24 280;
+        --chart-4: 0.58 0.21 300;
+        --chart-5: 0.62 0.23 295;
         
-        --sidebar: 0.15 0.08 265;
-        --sidebar-foreground: 0.96 0.01 260;
-        --sidebar-primary: 0.65 0.24 270;
-        --sidebar-primary-foreground: 0.98 0.005 260;
-        --sidebar-accent: 0.25 0.10 270;
-        --sidebar-accent-foreground: 0.96 0.01 260;
-        --sidebar-border: 0.30 0.10 270;
-        --sidebar-ring: 0.65 0.24 270;
+        --sidebar: 0.92 0.04 300;
+        --sidebar-foreground: 0.20 0.08 280;
+        --sidebar-primary: 0.55 0.22 290;
+        --sidebar-primary-foreground: 0.98 0.005 300;
+        --sidebar-accent: 0.88 0.04 300;
+        --sidebar-accent-foreground: 0.20 0.08 280;
+        --sidebar-border: 0.80 0.06 300;
+        --sidebar-ring: 0.55 0.22 290;
     }
 
     .dark {
-        /* Dark mode uses same dark blue, purple, teal theme */
-        --background: 0.12 0.08 260;
-        --foreground: 0.96 0.01 260;
-        --card: 0.18 0.09 265;
-        --card-foreground: 0.96 0.01 260;
-        --popover: 0.18 0.09 265;
-        --popover-foreground: 0.96 0.01 260;
+        /* Dark mode with light purple gradient theme */
+        --background: 0.95 0.05 300;
+        --foreground: 0.20 0.08 280;
+        --card: 0.98 0.03 300;
+        --card-foreground: 0.20 0.08 280;
+        --popover: 0.98 0.03 300;
+        --popover-foreground: 0.20 0.08 280;
         
-        /* Primary: Deep blue with purple undertones */
-        --primary: 0.65 0.24 270;
-        --primary-foreground: 0.98 0.005 260;
+        /* Primary: Deep purple */
+        --primary: 0.55 0.22 290;
+        --primary-foreground: 0.98 0.005 300;
         
-        /* Secondary: Rich purple */
-        --secondary: 0.55 0.22 300;
-        --secondary-foreground: 0.98 0.005 260;
+        /* Secondary: Rich purple-pink */
+        --secondary: 0.60 0.20 310;
+        --secondary-foreground: 0.98 0.005 300;
         
-        --muted: 0.25 0.10 270;
-        --muted-foreground: 0.72 0.05 270;
+        --muted: 0.88 0.04 300;
+        --muted-foreground: 0.45 0.08 280;
         
-        /* Accent: Vibrant teal green */
-        --accent: 0.70 0.20 180;
-        --accent-foreground: 0.98 0.005 260;
+        /* Accent: Vibrant purple */
+        --accent: 0.65 0.24 280;
+        --accent-foreground: 0.98 0.005 300;
         
         --destructive: 0.60 0.22 27;
-        --destructive-foreground: 0.98 0.005 260;
+        --destructive-foreground: 0.98 0.005 300;
         
-        --border: 0.30 0.10 270;
-        --input: 0.30 0.10 270;
-        --ring: 0.65 0.24 270;
+        --border: 0.80 0.06 300;
+        --input: 0.80 0.06 300;
+        --ring: 0.55 0.22 290;
         
         /* Chart colors for dark mode */
-        --chart-1: 0.65 0.24 270;
-        --chart-2: 0.55 0.22 300;
-        --chart-3: 0.70 0.20 180;
-        --chart-4: 0.60 0.23 250;
-        --chart-5: 0.68 0.21 200;
+        --chart-1: 0.55 0.22 290;
+        --chart-2: 0.60 0.20 310;
+        --chart-3: 0.65 0.24 280;
+        --chart-4: 0.58 0.21 300;
+        --chart-5: 0.62 0.23 295;
         
-        --sidebar: 0.15 0.08 265;
-        --sidebar-foreground: 0.96 0.01 260;
-        --sidebar-primary: 0.65 0.24 270;
-        --sidebar-primary-foreground: 0.98 0.005 260;
-        --sidebar-accent: 0.25 0.10 270;
-        --sidebar-accent-foreground: 0.96 0.01 260;
-        --sidebar-border: 0.30 0.10 270;
-        --sidebar-ring: 0.65 0.24 270;
+        --sidebar: 0.92 0.04 300;
+        --sidebar-foreground: 0.20 0.08 280;
+        --sidebar-primary: 0.55 0.22 290;
+        --sidebar-primary-foreground: 0.98 0.005 300;
+        --sidebar-accent: 0.88 0.04 300;
+        --sidebar-accent-foreground: 0.20 0.08 280;
+        --sidebar-border: 0.80 0.06 300;
+        --sidebar-ring: 0.55 0.22 290;
     }
 
     * {
         @apply border-border;
     }
     
+    html {
+        /* Reduce base font size by 1px (from default 16px to 15px) */
+        font-size: 15px;
+        scroll-behavior: smooth;
+    }
+    
     body {
         @apply bg-background text-foreground;
         font-feature-settings: "rlig" 1, "calt" 1;
-    }
-    
-    html {
-        scroll-behavior: smooth;
+        background: linear-gradient(135deg, oklch(0.95 0.05 300) 0%, oklch(0.92 0.06 310) 50%, oklch(0.94 0.05 290) 100%);
+        background-attachment: fixed;
     }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+    
+    .text-silver-gradient {
+        background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #A8A8A8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .text-silver-gradient-shadow {
+        background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 50%, #A8A8A8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+    
+    .text-navy-blue-shadow {
+        color: #001f3f;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
     }
 }

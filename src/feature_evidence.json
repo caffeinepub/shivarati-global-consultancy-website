@@ -1,0 +1,45 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-in-frontend-src-add-a-well-known-directory-if-it-does-not-already-exist-and-create-a-file-named-ic-domains-no-file-extension-at-frontend-src-well-known-ic-domains-with-the-exact-content-shivaritaglobal-com",
+      "featureTitle": "In `frontend/src`, add a `.well-known` directory (if it does not already exist) and create a file named `ic-domains` (no file extension) at `frontend/src/.well-known/ic-domains` with the exact content: `\"shivaritaglobal.com\"`.",
+      "files": [
+        "frontend/src/.well-known/ic-domains"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-frontend-src-create-a-file-named-ic-assets-json-with-the-exact-contents-match-well-known-ignore-false-including-brackets-quotes-exactly-as-provided",
+      "featureTitle": "In `frontend/src`, create a file named `ic-assets.json` with the exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` (including brackets/quotes exactly as provided).",
+      "files": [
+        "frontend/src/ic-assets.json"
+      ],
+      "components": [
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

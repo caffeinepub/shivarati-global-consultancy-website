@@ -1,0 +1,38 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add IC custom domain asset files for shivaritaglobal.com",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add .well-known/ic-domains file in frontend/src with the specified custom domain value.",
+      "acceptanceCriteria": [
+        "A file exists at `frontend/src/.well-known/ic-domains`.",
+        "The file has no extension and is named exactly `ic-domains`.",
+        "The file content is exactly `\"shivaritaglobal.com\"` (including the quotes)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/.well-known/ic-domains",
+          "operation": "create",
+          "description": "Create `frontend/src/.well-known` if missing and add the `ic-domains` file (no extension) with exact content: \"shivaritaglobal.com\" (including quotes)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add ic-assets.json in frontend/src with the exact asset configuration to include .well-known.",
+      "acceptanceCriteria": [
+        "A file exists at `frontend/src/ic-assets.json`.",
+        "The file content matches exactly the user-provided text: `[{\"match\":.well-known\",\"ignore\":false}]`."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/ic-assets.json",
+          "operation": "create",
+          "description": "Create `frontend/src/ic-assets.json` with the exact contents `[{\"match\":.well-known\",\"ignore\":false}]` (match characters exactly as provided, including brackets/quotes)."
+        }
+      ]
+    }
+  ]
+}

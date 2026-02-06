@@ -1,14 +1,9 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Shield, Lock, Eye, FileCheck, UserCheck, Database, ExternalLink } from 'lucide-react';
+import { Shield, Eye, FileCheck, UserCheck, Database, ExternalLink } from 'lucide-react';
 
 export function GDPRSection() {
   const gdprPrinciples = [
-    {
-      icon: Lock,
-      title: 'Data Security',
-      description: 'All personal information is encrypted and stored securely using industry-standard protocols with AES-256 encryption.'
-    },
     {
       icon: Eye,
       title: 'Transparency',
@@ -118,104 +113,81 @@ export function GDPRSection() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
-              <CardContent className="p-8">
-                <div className="flex items-center space-x-3 mb-4">
-                  <img
-                    src="/assets/generated/gdpr-compliance-badge.dim_200x200.png"
-                    alt="GDPR Compliance Badge"
-                    className="h-16 w-16"
-                  />
-                  <div>
-                    <h3 className="font-bold text-xl">Certified Compliance</h3>
-                    <p className="text-sm text-muted-foreground">EU GDPR Standards</p>
+          <Card className="border-primary/20 mb-12">
+            <CardContent className="p-8">
+              <h3 className="font-bold text-xl mb-4">Your GDPR Rights</h3>
+              <p className="text-sm text-muted-foreground mb-4">
+                Under GDPR, you have comprehensive rights regarding your personal data. We are committed to 
+                honoring these rights promptly and transparently:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                   </div>
-                </div>
-                <p className="text-muted-foreground leading-relaxed">
-                  Our data handling practices are regularly audited and certified to meet all GDPR requirements. 
-                  We maintain comprehensive records of processing activities and conduct regular privacy impact assessments 
-                  to ensure ongoing compliance.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary/20">
-              <CardContent className="p-8">
-                <h3 className="font-bold text-xl mb-4">Your GDPR Rights</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Under GDPR, you have comprehensive rights regarding your personal data. We are committed to 
-                  honoring these rights promptly and transparently:
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Access:</strong> Request a copy of your personal data we hold and information about how it's processed
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Rectification:</strong> Correct inaccurate or incomplete personal information
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Erasure:</strong> Request deletion of your data when it's no longer necessary or you withdraw consent
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Portability:</strong> Receive your data in a structured format and transfer it to another service provider
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Object:</strong> Opt-out of certain data processing activities, including direct marketing
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Restriction:</strong> Limit how we use your data in certain circumstances
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Withdraw Consent:</strong> Withdraw your consent at any time where processing is based on consent
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <div className="bg-primary/20 rounded-full p-1 mt-1">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                    </div>
-                    <span className="text-sm text-muted-foreground">
-                      <strong>Right to Lodge a Complaint:</strong> File a complaint with your local data protection authority
-                    </span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Access:</strong> Request a copy of your personal data we hold and information about how it's processed
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Rectification:</strong> Correct inaccurate or incomplete personal information
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Erasure:</strong> Request deletion of your data when it's no longer necessary or you withdraw consent
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Portability:</strong> Receive your data in a structured format and transfer it to another service provider
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Object:</strong> Opt-out of certain data processing activities, including direct marketing
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Restriction:</strong> Limit how we use your data in certain circumstances
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Withdraw Consent:</strong> Withdraw your consent at any time where processing is based on consent
+                  </span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <div className="bg-primary/20 rounded-full p-1 mt-1">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    <strong>Right to Lodge a Complaint:</strong> File a complaint with your local data protection authority
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
 
           <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5">
             <CardContent className="p-8">

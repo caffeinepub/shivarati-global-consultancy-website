@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileText, MapPin, Briefcase, GraduationCap, Euro, Plane } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 
 export function CategorySection() {
   const categories = [
@@ -39,10 +40,30 @@ export function CategorySection() {
   ];
 
   const visaTypes = [
-    { icon: GraduationCap, name: 'Student Visa', countries: '40+ Countries' },
-    { icon: Euro, name: 'EU Blue Card', countries: 'EU Member States' },
-    { icon: Briefcase, name: 'Job Seeker Visa', countries: 'Germany & EU' },
-    { icon: Plane, name: 'Digital Nomad Visa', countries: '20+ Countries' }
+    { 
+      icon: GraduationCap, 
+      name: 'Student Visa', 
+      countries: '40+ Countries',
+      link: '/product-offerings#students'
+    },
+    { 
+      icon: Euro, 
+      name: 'EU Blue Card', 
+      countries: 'EU Member States',
+      link: '/product-offerings#eu-blue-card'
+    },
+    { 
+      icon: Briefcase, 
+      name: 'Job Seeker Visa', 
+      countries: 'Germany & EU',
+      link: '/product-offerings#job-seeker'
+    },
+    { 
+      icon: Plane, 
+      name: 'Digital Nomad Visa', 
+      countries: '20+ Countries',
+      link: '/product-offerings#digital-nomad'
+    }
   ];
 
   return (
@@ -94,16 +115,17 @@ export function CategorySection() {
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {visaTypes.map((type, index) => (
-              <div
+              <Link
                 key={index}
-                className="bg-background rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                to={type.link}
+                className="bg-background rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
               >
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <type.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h4 className="font-semibold text-lg mb-2">{type.name}</h4>
+                <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{type.name}</h4>
                 <p className="text-sm text-muted-foreground">{type.countries}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

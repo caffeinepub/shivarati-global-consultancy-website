@@ -1,18 +1,16 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, Shield, Award } from 'lucide-react';
+import { useNavigate } from '@tanstack/react-router';
 
 export function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    navigate({ to: '/product-offerings' });
+  };
+
+  const handleLearnMore = () => {
+    navigate({ to: '/about' });
   };
 
   return (
@@ -40,14 +38,11 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={scrollToContact} className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
+              <Button size="lg" onClick={handleGetStarted} className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
                 Get Started
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" onClick={() => {
-                const element = document.getElementById('about');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }} className="border-primary/30 hover:bg-primary/10">
+              <Button size="lg" variant="outline" onClick={handleLearnMore} className="border-primary/30 hover:bg-primary/10">
                 Learn More
               </Button>
             </div>
@@ -86,8 +81,8 @@ export function Hero() {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/30 rounded-3xl blur-3xl" />
             <img
-              src="/assets/generated/consultation-meeting.dim_800x600.jpg"
-              alt="Consultation Meeting"
+              src="/assets/WhatsApp-Image-2026-01-15-at-6.07.png"
+              alt="Professional Consultation"
               className="relative rounded-3xl shadow-2xl w-full h-auto border border-primary/20"
             />
           </div>

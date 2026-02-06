@@ -1,18 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
+import { useNavigate } from '@tanstack/react-router';
 
 export function MapSection() {
-  const scrollToProductOffering = () => {
-    const element = document.getElementById('products');
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+  const navigate = useNavigate();
+
+  const handleMapClick = () => {
+    navigate({ to: '/contact' });
   };
 
   return (
@@ -31,20 +25,20 @@ export function MapSection() {
           {/* Map container with clickable overlay */}
           <div className="relative group">
             <img
-              src="/assets/generated/europe-highlighted-world-map.dim_1000x600.png"
+              src="/assets/World-Map.jpg"
               alt="World map with highlighted European countries"
               className="w-full h-auto"
             />
             
             {/* Clickable overlay button */}
             <button
-              onClick={scrollToProductOffering}
+              onClick={handleMapClick}
               className="absolute inset-0 flex items-center justify-center bg-primary/0 hover:bg-primary/10 transition-all duration-300 cursor-pointer group"
-              aria-label="Click to view visa options"
+              aria-label="Click to contact us about visa options"
             >
               <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-primary text-primary-foreground px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
                 <MapPin className="h-5 w-5" />
-                <span className="font-semibold">View Visa Options</span>
+                <span className="font-semibold">Contact Us for Visa Options</span>
               </div>
             </button>
           </div>
@@ -52,14 +46,14 @@ export function MapSection() {
 
         <div className="mt-8 text-center space-y-4">
           <p className="text-sm text-muted-foreground">
-            Click on the highlighted European region to discover visa opportunities
+            Click on the highlighted European region to contact us about visa opportunities
           </p>
           <Button 
-            onClick={scrollToProductOffering}
+            onClick={handleMapClick}
             size="lg"
             className="mt-4"
           >
-            Explore Visa Services
+            Contact Us About Visa Services
           </Button>
         </div>
       </div>

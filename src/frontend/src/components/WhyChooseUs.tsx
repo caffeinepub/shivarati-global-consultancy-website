@@ -1,15 +1,8 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Award, Users, Globe, Clock, Shield, HeartHandshake, Star, CheckCircle2 } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 
 export function WhyChooseUs() {
-  const handleEmergencyHotlineClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   const uspItems = [
     {
       icon: Award,
@@ -102,14 +95,13 @@ export function WhyChooseUs() {
               When you choose Shivarita Global Consultancy, you're not just hiring a service provider—you're gaining a 
               dedicated partner who will stand by you from your first consultation to your successful arrival in your 
               destination country and beyond. We also provide a{' '}
-              <a
-                href="#contact"
-                onClick={handleEmergencyHotlineClick}
+              <Link
+                to="/contact"
                 className="font-bold text-accent hover:text-accent/80 underline decoration-2 underline-offset-4 transition-colors focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded-sm"
                 aria-label="Contact our 24/7 emergency hotline"
               >
                 24/7 emergency hotline
-              </a>
+              </Link>
               {' '}for urgent assistance whenever you need it.
             </p>
           </div>

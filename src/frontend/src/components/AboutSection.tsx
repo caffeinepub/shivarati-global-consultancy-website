@@ -78,12 +78,12 @@ export function AboutSection() {
 
           <div className="space-y-6">
             <img
-              src="/assets/generated/consultation-meeting.dim_800x600.jpg"
+              src="/assets/office-interior-1.png"
               alt="Professional Consultation"
               className="rounded-2xl shadow-xl w-full h-auto"
             />
             <img
-              src="/assets/generated/office-interior.dim_1200x800.jpg"
+              src="/assets/WhatsApp-Image-2026-01-15-at-6.07-1.png"
               alt="Office Interior"
               className="rounded-2xl shadow-xl w-full h-auto"
             />
@@ -94,16 +94,37 @@ export function AboutSection() {
           <div className="order-2 lg:order-1">
             <Card className="border-primary/20 shadow-lg">
               <CardContent className="p-8">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-white p-4 rounded-xl flex items-center justify-center">
-                    <img
-                      src="/assets/Asset 1-2.png"
-                      alt="IMC Logo"
-                      className="h-16 w-auto"
-                    />
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="bg-white p-4 rounded-xl flex items-center justify-center">
+                      <img
+                        src="/assets/Asset 1-2.png"
+                        alt="IMC Logo"
+                        className="h-16 w-auto"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold">IMC Affiliation</h3>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">IMC Certified Compliance</h3>
+                  
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-semibold text-primary">IMC-Certified Integrity:</h4>
+                    <div className="text-muted-foreground leading-relaxed space-y-4">
+                      <p>
+                        Founder of Shivarita Global Consultancy Sushmita Anup Nair is a proud member of Investment Migration Council (IMC), Geneva Switzerland and offers its clients individual consulting to compass their needs and find a tailored solution. Our affiliation with the IMC ensures each case is handled according to the highest global ethical standards. The IMC is the worldwide association for Investor Immigration and Citizenship-by-Investment, bringing together the leading stakeholders in the field and giving the industry a voice.
+                      </p>
+                      <p>
+                        The Investment Migration Council sets the standards on a global level and interacts with other professional associations, governments, and international organizations concerning investment migration. The IMC helps to improve public understanding of the issues faced by clients and governments in this area and promotes education and high professional standards among its members.
+                      </p>
+                    </div>
+                    <div className="pt-4">
+                      <img
+                        src="/assets/IMC Membership Certificate - Sushmita Nair.png"
+                        alt="IMC Membership Certificate - Sushmita Nair"
+                        className="w-full h-auto rounded-lg shadow-md border border-primary/20"
+                      />
+                    </div>
                   </div>
                 </div>
               </CardContent>

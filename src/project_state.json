@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Project to deploy an Internet Computer website and support connecting a custom domain (GoDaddy / shivaritaglobal.com) via required frontend asset files.",
+  "architectural_notes": [
+    "To enable custom domain linking on ICP, add frontend src/.well-known/ic-domains (no extension) containing the domain string (e.g., shivaritaglobal.com) and add frontend src/ic-assets.json with a rule to include .well-known assets."
+  ],
+  "known_issues": [
+    "Previous attempt to connect www.shivaritaglobal.com to the ICP site failed with: \"The AI couldn't implement your request. Please simplify or rephrase your prompt.\""
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-in-frontend-src-add-a-well-known-directory-if-it-does-not-already-exist-and-create-a-file-named-ic-domains-no-file-extension-at-frontend-src-well-known-ic-domains-with-the-exact-content-shivaritaglobal-com",
+      "title": "In `frontend/src`, add a `.well-known` directory (if it does not already exist) and create a file named `ic-domains` (no file extension) at `frontend/src/.well-known/ic-domains` with the exact content: `\"shivaritaglobal.com\"`.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-frontend-src-create-a-file-named-ic-assets-json-with-the-exact-contents-match-well-known-ignore-false-including-brackets-quotes-exactly-as-provided",
+      "title": "In `frontend/src`, create a file named `ic-assets.json` with the exact contents: `[{\"match\":.well-known\",\"ignore\":false}]` (including brackets/quotes exactly as provided).",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add custom domain connection support by adding frontend .well-known/ic-domains and ic-assets.json for shivaritaglobal.com",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Add IC custom domain asset files for shivaritaglobal.com",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

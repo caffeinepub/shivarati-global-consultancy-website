@@ -5,6 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  AlertDialog,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 import { Mail, MapPin, Clock, Send, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -17,9 +25,72 @@ export function ContactSection() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [errors, setErrors] = useState({
+    email: '',
+    phone: ''
+  });
+
+  // Email validation function
+  const validateEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  // Phone validation function
+  const validatePhone = (phone: string): boolean => {
+    // Check if exactly 10 digits
+    if (phone.length !== 10) {
+      return false;
+    }
+    
+    // Check if all characters are digits
+    if (!/^\d{10}$/.test(phone)) {
+      return false;
+    }
+    
+    // Check for repeated digits (e.g., 9999999999, 5555555555)
+    const firstDigit = phone[0];
+    const allSame = phone.split('').every(digit => digit === firstDigit);
+    if (allSame) {
+      return false;
+    }
+    
+    return true;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Reset errors
+    setErrors({ email: '', phone: '' });
+    
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      setErrors(prev => ({ ...prev, email: 'Please enter a valid email address (e.g., example@domain.com)' }));
+      toast.error('Invalid email format', {
+        description: 'Please enter a valid email address with @ and a domain (e.g., .com, .in)'
+      });
+      return;
+    }
+    
+    // Validate phone
+    if (!validatePhone(formData.phone)) {
+      let phoneError = '';
+      if (formData.phone.length !== 10) {
+        phoneError = 'Phone number must be exactly 10 digits';
+      } else if (!/^\d{10}$/.test(formData.phone)) {
+        phoneError = 'Phone number must contain only digits';
+      } else {
+        phoneError = 'Invalid phone number. Please avoid repeated digits (e.g., 9999999999)';
+      }
+      setErrors(prev => ({ ...prev, phone: phoneError }));
+      toast.error('Invalid phone number', {
+        description: phoneError
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
@@ -28,7 +99,7 @@ export function ContactSection() {
       const emailBody = `
 Name: ${formData.name}
 Email: ${formData.email}
-Phone: ${formData.phone}
+Phone: +91 ${formData.phone}
 Service Type: ${formData.serviceType}
 Message: ${formData.message}
       `.trim();
@@ -42,7 +113,7 @@ Message: ${formData.message}
 
 *Name:* ${formData.name}
 *Email:* ${formData.email}
-*Phone:* ${formData.phone}
+*Phone:* +91 ${formData.phone}
 *Service Type:* ${formData.serviceType}
 *Message:* ${formData.message}
       `.trim();
@@ -57,9 +128,8 @@ Message: ${formData.message}
         window.open(whatsappLink, '_blank');
       }, 500);
 
-      toast.success('Submission initiated!', {
-        description: 'Please complete the email and WhatsApp submissions in the opened windows.'
-      });
+      // Show confirmation popup
+      setShowConfirmation(true);
 
       // Reset form
       setFormData({
@@ -69,6 +139,7 @@ Message: ${formData.message}
         serviceType: '',
         message: ''
       });
+      setErrors({ email: '', phone: '' });
     } catch (error) {
       toast.error('Submission failed', {
         description: 'Please try again or contact us directly via email or WhatsApp.'
@@ -80,13 +151,22 @@ Message: ${formData.message}
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (field === 'email' || field === 'phone') {
+      setErrors(prev => ({ ...prev, [field]: '' }));
+    }
+  };
+
+  const handlePhoneChange = (value: string) => {
+    // Only allow digits and limit to 10 characters
+    const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
+    handleChange('phone', digitsOnly);
   };
 
   const handleBookConsultation = () => {
-    toast.success('Booking consultation...', {
-      description: 'You will be redirected to our booking system.'
-    });
-    // In a real application, this would redirect to a booking system
+    const whatsappMessage = 'Request to schedule an appointment for Visa Consultancy';
+    const whatsappLink = `https://wa.me/917738422920?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappLink, '_blank');
   };
 
   return (
@@ -165,23 +245,36 @@ Message: ${formData.message}
                         value={formData.email}
                         onChange={(e) => handleChange('email', e.target.value)}
                         required
-                        className="border-primary/20 focus:border-primary"
+                        className={`border-primary/20 focus:border-primary ${errors.email ? 'border-destructive' : ''}`}
                       />
+                      {errors.email && (
+                        <p className="text-sm text-destructive mt-1">{errors.email}</p>
+                      )}
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number *</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        placeholder="+91 1234567890"
-                        value={formData.phone}
-                        onChange={(e) => handleChange('phone', e.target.value)}
-                        required
-                        className="border-primary/20 focus:border-primary"
-                      />
+                      <div className="flex gap-2">
+                        <div className="flex items-center px-3 py-2 bg-muted rounded-md border border-primary/20">
+                          <span className="text-sm font-medium">+91</span>
+                        </div>
+                        <Input
+                          id="phone"
+                          type="tel"
+                          placeholder="1234567890"
+                          value={formData.phone}
+                          onChange={(e) => handlePhoneChange(e.target.value)}
+                          required
+                          maxLength={10}
+                          className={`flex-1 border-primary/20 focus:border-primary ${errors.phone ? 'border-destructive' : ''}`}
+                        />
+                      </div>
+                      {errors.phone && (
+                        <p className="text-sm text-destructive mt-1">{errors.phone}</p>
+                      )}
+                      <p className="text-xs text-muted-foreground">Enter 10-digit mobile number</p>
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="serviceType">Consultation and Visa Service Needed For: *</Label>
@@ -254,7 +347,7 @@ Message: ${formData.message}
                   <div>
                     <h3 className="font-semibold mb-1">Office Address</h3>
                     <p className="text-sm text-muted-foreground">
-                      Borivali - Mumbai, India
+                      Mumbai, Maharashtra
                     </p>
                   </div>
                 </div>
@@ -266,30 +359,32 @@ Message: ${formData.message}
                   <div>
                     <h3 className="font-semibold mb-1">Business Hours</h3>
                     <p className="text-sm text-muted-foreground">
-                      Monday to Friday: 10:00 AM – 6:00 PM IST<br />
-                      Saturday: 10:00 AM – 3:00 PM IST<br />
-                      Sunday: Closed
+                      Available All Days - 10:00 am - 6:00 pm IST
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-            <Card className="border-primary/20 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-lg mb-2">Emergency Support</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  For urgent visa matters, our 24/7 emergency hotline is available for existing clients.
-                </p>
-                <Button variant="outline" className="w-full border-primary/30 hover:bg-primary/10">
-                  <Mail className="mr-2 h-4 w-4" />
-                  Contact Emergency Support
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
+
+      {/* Confirmation Dialog */}
+      <AlertDialog open={showConfirmation} onOpenChange={setShowConfirmation}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-2xl">Thank You!</AlertDialogTitle>
+            <AlertDialogDescription className="text-base">
+              Thank You for sharing the required details, you will be touched shortly.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <Button onClick={() => setShowConfirmation(false)} className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
+              Close
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 }
