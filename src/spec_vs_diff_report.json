@@ -1,29 +1,54 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T08:06:14.081Z",
-  "summary": "REQ-1 appears implemented in Header.tsx: header hides on downward scroll past a threshold, shows on scroll up or when at top, and can be revealed via a thin top-edge hover zone; header remains visible while the mobile menu is open. Additional non-requested metadata/documentation files were updated.",
-  "missing_requirements": [],
-  "hallucinated_features": [
+  "generatedAt": "2026-02-06T09:10:08.138Z",
+  "summary": "The diff indicates an intent to swap the Digital Nomad comparison chart image to a new filename/path, but it does not show the new image being added under frontend/public/assets as required. The diff also includes unrelated content/feature changes (per the modified frontend-file-summaries.txt) and updates to project_state.json that were not requested.",
+  "missing_requirements": [
     {
-      "description": "Updated/added project tracking metadata about the request (project_state.json)",
-      "reason": "BuildRequest only asks for frontend header behavior changes; it does not request updating project tracking JSON.",
+      "id": "REQ-2",
+      "requirement": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
+      "reason": "No new file was added in the diff (Added: 0), and there is no evidence of the image being placed under `frontend/public/assets/`.",
       "evidence": [
-        "project_state.json"
-      ]
-    },
-    {
-      "description": "Updated a generated documentation/summary file describing many components (frontend-file-summaries.txt)",
-      "reason": "BuildRequest does not request updating documentation or summary files; only implementing the header behavior change.",
-      "evidence": [
-        "frontend-file-summaries.txt"
+        "File diff summary: \"Added: 0\"",
+        "frontend-file-summaries.txt (mentions usage of /assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png but does not show the asset existing under frontend/public/assets/)"
       ]
     }
   ],
-  "confidence": 0.84,
+  "hallucinated_features": [
+    {
+      "description": "Updated EU Blue Card eligibility criteria and other Job Seeker section country titles/content.",
+      "reason": "The BuildRequest explicitly scoped changes to only swapping the Digital Nomad comparison chart image and disallowed other content/text changes in that section; these broader content updates were not requested.",
+      "evidence": [
+        "frontend-file-summaries.txt (ProductOffering.tsx description mentions updated EU Blue Card criteria and updated country titles/content for Job Seeker section)"
+      ]
+    },
+    {
+      "description": "Changed the Digital Nomad Visa comparison chart sizing to 65% width (stated as a reduction from 85%).",
+      "reason": "REQ-1 requires keeping the same existing layout (already 65% width per request); implementing a reduction from a previous 85% implies an additional layout change beyond just swapping the image.",
+      "evidence": [
+        "frontend-file-summaries.txt (\"Digital Nomad Visa comparison chart reduced to 65% width (20% reduction from previous 85% size)\")"
+      ]
+    },
+    {
+      "description": "Added/updated URL hash deep-linking behavior to automatically open tabs/accordions and smooth scroll.",
+      "reason": "Not requested by the BuildRequest, which is limited to replacing a single image and adding its asset.",
+      "evidence": [
+        "frontend/src/components/ProductOffering.tsx (shows new useEffect handling window.location.hash and scrollIntoView)",
+        "frontend-file-summaries.txt (mentions automatic tab/accordion opening based on URL hash)"
+      ]
+    },
+    {
+      "description": "Updated project_state.json with new_feature_requests entries (AR-1/AR-2/AR-3).",
+      "reason": "The BuildRequest did not request changes to project tracking metadata files.",
+      "evidence": [
+        "project_state.json (modified, includes new_feature_requests AR-1/AR-2/AR-3)"
+      ]
+    }
+  ],
+  "confidence": 0.72,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/Header.tsx",
+    "frontend/src/components/ProductOffering.tsx",
     "project_state.json"
   ]
 }

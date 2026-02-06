@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-update-the-global-site-header-so-that-it-automatically-hides-when-the-user-scrolls-down-the-page-and-reappears-when-the-user-hovers-near-the-very-top-edge-of-the-viewport",
-      "featureTitle": "Update the global site header so that it automatically hides when the user scrolls down the page, and reappears when the user hovers near the very top edge of the viewport.",
+      "featureId": "feature-in-the-product-offerings-page-digital-nomad-visa-section-replace-the-current-comparison-chart-image-currently-referenced-as-src-assets-comparison-of-digital-nomad-visas-png-with-the-newly-uploaded-image-asset-keeping-the-same-layout-65-width-container-and-updating-the-img-src-only-if-the-final-asset-filename-differs",
+      "featureTitle": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
       "files": [
-        "frontend/src/components/Header.tsx"
+        "frontend/src/components/ProductOffering.tsx"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -18,6 +18,24 @@
       ],
       "testIds": [
         "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-uploaded-comparison-chart-image-to-the-frontend-static-assets-so-it-is-served-at-the-path-used-by-the-digital-nomad-comparison-chart-under-frontend-public-assets",
+      "featureTitle": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
+      "files": [],
+      "components": [
+        "blob-storage@4.0.0",
+        "http-outcalls@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
       ],
       "confidence": "high"
     }

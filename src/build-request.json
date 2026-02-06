@@ -1,42 +1,54 @@
 {
   "kind": "build_request",
-  "title": "Auto-hide header on scroll down and reveal on top hover",
+  "title": "Replace Digital Nomad Visa comparison chart image on Product Offerings page",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Update the global site header so that it automatically hides when the user scrolls down the page, and reappears when the user hovers near the very top edge of the viewport.",
+      "text": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "user-1"
+          "msg-8"
         ],
         "quotes": [
-          "When the user scrolls down, auto hide the header band unless the user hover on the top"
+          "In the Product Offerings Page, Under Digital Nomad Visa, Replace the Comparison of Digital Nomad Visas by six criteria Image with the attached file"
         ]
       },
       "acceptanceCriteria": [
-        "When the user scrolls downward past a small threshold (e.g., >20px), the header transitions out of view (e.g., slides up) instead of remaining fixed on-screen.",
-        "When the user moves the mouse to the top edge of the viewport (a thin hover-reveal zone), the header becomes visible again while the pointer remains in that top area (or while hovering the header).",
-        "When the user scrolls back to the very top of the page (scrollY === 0), the header is visible.",
-        "The hide/reveal behavior uses smooth transitions and does not cause layout shift/jump in page content.",
-        "On touch/mobile devices (no hover), the header still becomes visible when the user scrolls up (scroll direction up) and hides when scrolling down, so navigation remains accessible without hover.",
-        "If the mobile navigation sheet/menu is open, the header must remain visible and not auto-hide until the menu is closed.",
-        "Implementation is contained to existing frontend components (primarily `frontend/src/components/Header.tsx`) and does not require backend changes."
+        "Navigating to Product Offerings → Professionals → Digital Nomad Visa shows the new comparison chart image instead of the old one.",
+        "No other images in the Digital Nomad Visa section (Portugal/Spain/Malta/Hungary/Italy) are changed.",
+        "The comparison chart remains centered and constrained by the existing 65% width container without overflow on mobile or desktop."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "Replace the Comparison of Digital Nomad Visas by six criteria Image with the attached file"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The new image exists in the built frontend assets under `public/assets/` and loads successfully at runtime (no broken image icon / 404)."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under `frontend/src/components/ui` (compose existing UI components instead).",
-    "Do not modify files listed as immutable in SYSTEM_CONTEXT (e.g., `frontend/src/main.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/hooks/useInternetIdentity.ts/tsx`)."
+    "Do not edit any files under `frontend/src/components/ui` or any other immutable paths listed in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Adding new navigation items or changing existing routes.",
-    "Changing header branding/logo assets or header text.",
-    "Implementing real-time features or backend-driven behavior for header visibility."
+    "No changes to backend canister logic (Motoko).",
+    "No content/text changes to the Digital Nomad Visa section beyond swapping the comparison chart image."
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "A table-style comparison chart titled \"Comparison of Digital Nomad Visas\" with country flags (Spain, Italy, Hungary, Portugal, Malta) and multiple criteria rows (Comparison of Digital Nomad Visas.dim_1536x1152.png)"
+    ],
     "edits": []
   }
 }

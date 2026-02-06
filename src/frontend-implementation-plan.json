@@ -1,25 +1,35 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Auto-hide global header on scroll with top-edge hover reveal",
+  "title": "Swap Digital Nomad Visa comparison chart image on Product Offerings page",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Make the fixed global header slide out on scroll down and reappear via top-edge hover (desktop) or scroll-up direction (touch/mobile), while keeping it visible when the mobile menu is open.",
+      "summary": "Update the Digital Nomad Visa comparison chart <img> to use the newly uploaded asset while preserving the existing centered 65% width layout.",
       "acceptanceCriteria": [
-        "When the user scrolls downward past a small threshold (e.g., >20px), the header transitions out of view (e.g., slides up) instead of remaining fixed on-screen.",
-        "When the user moves the mouse to the top edge of the viewport (a thin hover-reveal zone), the header becomes visible again while the pointer remains in that top area (or while hovering the header).",
-        "When the user scrolls back to the very top of the page (scrollY === 0), the header is visible.",
-        "The hide/reveal behavior uses smooth transitions and does not cause layout shift/jump in page content.",
-        "On touch/mobile devices (no hover), the header still becomes visible when the user scrolls up (scroll direction up) and hides when scrolling down, so navigation remains accessible without hover.",
-        "If the mobile navigation sheet/menu is open, the header must remain visible and not auto-hide until the menu is closed.",
-        "Implementation is contained to existing frontend components (primarily `frontend/src/components/Header.tsx`) and does not require backend changes."
+        "Navigating to Product Offerings → Professionals → Digital Nomad Visa shows the new comparison chart image instead of the old one.",
+        "No other images in the Digital Nomad Visa section (Portugal/Spain/Malta/Hungary/Italy) are changed.",
+        "The comparison chart remains centered and constrained by the existing 65% width container without overflow on mobile or desktop."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Header.tsx",
+          "path": "frontend/src/components/ProductOffering.tsx",
           "operation": "modify",
-          "description": "Implement header visibility state driven by scroll position and scroll direction (hide on downward scroll past threshold, show at scrollY===0 and on upward scroll for touch/mobile), add a thin fixed top-edge hover-reveal zone (desktop hover-capable pointers) that temporarily reveals the header while hovered, ensure the header stays visible while the mobile Sheet menu is open, and apply translate/transition classes so the header slides without causing layout shift."
+          "description": "In the Digital Nomad Visa section’s comparison chart <img>, replace the current src (\"/assets/Comparison of Digital Nomad Visas.png\") with the new static asset path. Keep the existing container styling (65% width, centered) unchanged, and do not modify the other country images’ src values."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add the uploaded comparison chart image to the frontend public assets at the path used by the Digital Nomad comparison chart.",
+      "acceptanceCriteria": [
+        "The new image exists in the built frontend assets under `public/assets/` and loads successfully at runtime (no broken image icon / 404)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png",
+          "operation": "create",
+          "description": "Add the newly uploaded comparison chart image as a static frontend asset so it is served at runtime (and can be referenced from the ProductOffering comparison chart <img> src)."
         }
       ]
     }
