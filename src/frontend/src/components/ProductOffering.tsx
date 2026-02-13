@@ -864,7 +864,7 @@ export function ProductOffering() {
                           <h4 className="font-semibold text-xl text-center">Comparison of Digital Nomad Visas by six criteria</h4>
                           <div className="relative overflow-hidden rounded-lg border border-accent/20 shadow-lg" style={{ width: '65%', maxWidth: '100%' }}>
                             <img 
-                              src="/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png" 
+                              src="/assets/Comparison Chart.jpeg" 
                               alt="Comparison of Digital Nomad Visas by six criteria" 
                               className="w-full h-auto"
                             />

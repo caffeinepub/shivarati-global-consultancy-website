@@ -1,30 +1,31 @@
 import { SiX, SiLinkedin, SiInstagram } from 'react-icons/si';
 import { Heart } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
+import { pageLinks, getPageLink } from '@/utils/staticSiteLinks';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const appIdentifier = typeof window !== 'undefined' ? encodeURIComponent(window.location.hostname) : 'shivarita-global';
 
   const footerLinks = {
     services: [
-      { label: 'Student Visa', path: '/product-offerings' },
-      { label: 'Work Visa', path: '/product-offerings' },
-      { label: 'Business Visa', path: '/product-offerings' },
-      { label: 'Investment Visa', path: '/product-offerings' }
+      { label: 'Student Visa', path: pageLinks.productOfferings },
+      { label: 'Work Visa', path: pageLinks.productOfferings },
+      { label: 'Business Visa', path: pageLinks.productOfferings },
+      { label: 'Investment Visa', path: pageLinks.productOfferings }
     ],
     company: [
-      { label: 'About Us', path: '/about' },
-      { label: 'Product Offerings', path: '/product-offerings' },
-      { label: 'Why Choose Us', path: '/why-choose-us' },
-      { label: 'GDPR Compliance', path: '/gdpr' },
-      { label: 'Disclaimer', path: '/disclaimer' },
-      { label: 'Contact', path: '/contact' }
+      { label: 'About Us', path: pageLinks.about },
+      { label: 'Product Offerings', path: pageLinks.productOfferings },
+      { label: 'Why Choose Us', path: pageLinks.whyChooseUs },
+      { label: 'GDPR Compliance', path: pageLinks.gdpr },
+      { label: 'Disclaimer', path: pageLinks.disclaimer },
+      { label: 'Contact', path: pageLinks.contact }
     ],
     resources: [
-      { label: 'Visa Categories', path: '/product-offerings' },
-      { label: 'EU Immigration', path: '/product-offerings' },
-      { label: 'Documentation', path: '/product-offerings' },
-      { label: 'Success Stories', path: '/why-choose-us' }
+      { label: 'Visa Categories', path: pageLinks.productOfferings },
+      { label: 'EU Immigration', path: pageLinks.productOfferings },
+      { label: 'Documentation', path: pageLinks.productOfferings },
+      { label: 'Success Stories', path: pageLinks.whyChooseUs }
     ]
   };
 
@@ -76,12 +77,12 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -92,12 +93,12 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -108,12 +109,12 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.resources.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -125,7 +126,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground text-center md:text-left">
               © {currentYear}. Built with <Heart className="inline h-4 w-4 text-red-500 fill-red-500" /> using{' '}
               <a
-                href="https://caffeine.ai"
+                href={`https://caffeine.ai/?utm_source=Caffeine-footer&utm_medium=referral&utm_content=${appIdentifier}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline"
@@ -134,15 +135,15 @@ export function Footer() {
               </a>
             </p>
             <div className="flex space-x-6 text-sm text-muted-foreground">
-              <Link to="/gdpr" className="hover:text-primary transition-colors">
+              <a href={pageLinks.gdpr} className="hover:text-primary transition-colors">
                 Privacy Policy
-              </Link>
-              <Link to="/disclaimer" className="hover:text-primary transition-colors">
+              </a>
+              <a href={pageLinks.disclaimer} className="hover:text-primary transition-colors">
                 Disclaimer
-              </Link>
-              <Link to="/contact" className="hover:text-primary transition-colors">
+              </a>
+              <a href={pageLinks.contact} className="hover:text-primary transition-colors">
                 Contact
-              </Link>
+              </a>
             </div>
           </div>
         </div>

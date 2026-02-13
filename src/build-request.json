@@ -1,54 +1,56 @@
 {
   "kind": "build_request",
-  "title": "Replace Digital Nomad Visa comparison chart image on Product Offerings page",
+  "title": "Retry rebuild/rollback to draft version 88 and match code exactly",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
-      "target": "frontend",
+      "text": "Rebuild and redeploy the application by rolling back the full codebase (frontend + backend) to draft version 88 so that the deployed site matches the code exactly as it was in version 88.",
+      "target": "both",
       "source": {
         "messageIds": [
           "msg-8"
         ],
         "quotes": [
-          "In the Product Offerings Page, Under Digital Nomad Visa, Replace the Comparison of Digital Nomad Visas by six criteria Image with the attached file"
+          "Rollback to draft version 88, change the codes exactly as in the version 88"
         ]
       },
       "acceptanceCriteria": [
-        "Navigating to Product Offerings → Professionals → Digital Nomad Visa shows the new comparison chart image instead of the old one.",
-        "No other images in the Digital Nomad Visa section (Portugal/Spain/Malta/Hungary/Italy) are changed.",
-        "The comparison chart remains centered and constrained by the existing 65% width container without overflow on mobile or desktop."
+        "The deployed draft corresponds to version 88 across both frontend and backend (no mixed-version behavior).",
+        "All frontend pages load successfully: Home, About, Product Offerings, GDPR, Why Choose Us, Contact, Disclaimer.",
+        "No runtime errors or blank-screen/fallback error UI occurs during initial page load and basic navigation between pages."
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
-      "target": "frontend",
+      "text": "Retry the rollback/rebuild operation that previously failed due to an AI service error, and ensure the operation completes successfully end-to-end (build + deploy).",
+      "target": "both",
       "source": {
         "messageIds": [
-          "msg-8"
+          "msg-10",
+          "msg-12"
         ],
         "quotes": [
-          "Replace the Comparison of Digital Nomad Visas by six criteria Image with the attached file"
+          "❗ AI service error. We apologize for the disruption.",
+          "Yes"
         ]
       },
       "acceptanceCriteria": [
-        "The new image exists in the built frontend assets under `public/assets/` and loads successfully at runtime (no broken image icon / 404)."
+        "A new draft deployment is produced successfully without AI service/build interruption.",
+        "Post-deploy smoke checks are executed and pass (page loads + navigation)."
       ]
     }
   ],
   "constraints": [
-    "Do not edit any files under `frontend/src/components/ui` or any other immutable paths listed in SYSTEM_CONTEXT."
+    "Backend must remain a single Motoko actor in backend/main.mo; do not introduce additional backend services.",
+    "Do not modify files under frontend/src/components/ui or the immutable hook/entry paths listed in SYSTEM_CONTEXT; compose existing components instead if needed."
   ],
   "nonGoals": [
-    "No changes to backend canister logic (Motoko).",
-    "No content/text changes to the Digital Nomad Visa section beyond swapping the comparison chart image."
+    "Do not add new UX polish or new features beyond matching version 88.",
+    "Do not change the site navigation/header behavior beyond what exists in version 88."
   ],
   "imageRequirements": {
-    "required": [
-      "A table-style comparison chart titled \"Comparison of Digital Nomad Visas\" with country flags (Spain, Italy, Hungary, Portugal, Malta) and multiple criteria rows (Comparison of Digital Nomad Visas.dim_1536x1152.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

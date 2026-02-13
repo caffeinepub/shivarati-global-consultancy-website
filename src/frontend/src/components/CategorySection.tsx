@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { FileText, MapPin, Briefcase, GraduationCap, Euro, Plane } from 'lucide-react';
-import { Link } from '@tanstack/react-router';
+import { getPageLink } from '@/utils/staticSiteLinks';
 
 export function CategorySection() {
   const categories = [
@@ -44,25 +44,25 @@ export function CategorySection() {
       icon: GraduationCap, 
       name: 'Student Visa', 
       countries: '40+ Countries',
-      link: '/product-offerings#students'
+      link: getPageLink('product-offerings', '#students')
     },
     { 
       icon: Euro, 
       name: 'EU Blue Card', 
       countries: 'EU Member States',
-      link: '/product-offerings#eu-blue-card'
+      link: getPageLink('product-offerings', '#eu-blue-card')
     },
     { 
       icon: Briefcase, 
       name: 'Job Seeker Visa', 
       countries: 'Germany & EU',
-      link: '/product-offerings#job-seeker'
+      link: getPageLink('product-offerings', '#job-seeker')
     },
     { 
       icon: Plane, 
       name: 'Digital Nomad Visa', 
       countries: '20+ Countries',
-      link: '/product-offerings#digital-nomad'
+      link: getPageLink('product-offerings', '#digital-nomad')
     }
   ];
 
@@ -74,32 +74,28 @@ export function CategorySection() {
             Our Services
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Comprehensive Immigration Solutions
+            Comprehensive Visa Solutions
           </h2>
           <p className="text-lg text-muted-foreground">
-            From documentation to counselling, we provide end-to-end support for all your visa and immigration needs.
+            From documentation to destination, we guide you through every step of your immigration journey
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {categories.map((category, index) => (
-            <Card key={index} className="border-primary/20 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <Card key={index} className="border-primary/20 hover:border-primary/40 transition-all hover:shadow-lg">
               <CardHeader>
-                <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-4">
-                  <category.icon className="h-8 w-8 text-primary" />
+                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
+                  <category.icon className="h-7 w-7 text-primary" />
                 </div>
-                <CardTitle className="text-2xl">{category.title}</CardTitle>
+                <CardTitle className="text-xl">{category.title}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground leading-relaxed">
-                  {category.description}
-                </p>
+              <CardContent>
+                <p className="text-muted-foreground mb-4">{category.description}</p>
                 <ul className="space-y-2">
                   {category.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start space-x-2">
-                      <div className="bg-primary/20 rounded-full p-1 mt-0.5">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                      </div>
+                    <li key={idx} className="flex items-start">
+                      <span className="text-primary mr-2">•</span>
                       <span className="text-sm text-muted-foreground">{feature}</span>
                     </li>
                   ))}
@@ -109,23 +105,29 @@ export function CategorySection() {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8">
-            Visa Documentation & Consultation Handled
-          </h3>
+        <div className="bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-2xl p-8 md:p-12">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Popular Visa Types</h3>
+            <p className="text-muted-foreground">
+              Explore our specialized visa services tailored to your needs
+            </p>
+          </div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {visaTypes.map((type, index) => (
-              <Link
+            {visaTypes.map((visa, index) => (
+              <a
                 key={index}
-                to={type.link}
-                className="bg-background rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+                href={visa.link}
+                className="group bg-background border border-border hover:border-primary/40 rounded-xl p-6 transition-all hover:shadow-lg"
               >
-                <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                  <type.icon className="h-8 w-8 text-primary" />
+                <div className="bg-gradient-to-br from-primary/20 to-secondary/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <visa.icon className="h-6 w-6 text-primary" />
                 </div>
-                <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">{type.name}</h4>
-                <p className="text-sm text-muted-foreground">{type.countries}</p>
-              </Link>
+                <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                  {visa.name}
+                </h4>
+                <p className="text-sm text-muted-foreground">{visa.countries}</p>
+              </a>
             ))}
           </div>
         </div>

@@ -1,35 +1,176 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Swap Digital Nomad Visa comparison chart image on Product Offerings page",
+  "title": "Rollback/rebuild frontend to draft version 88 and complete build+deploy with smoke checks",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Update the Digital Nomad Visa comparison chart <img> to use the newly uploaded asset while preserving the existing centered 65% width layout.",
+      "summary": "Restore the frontend codebase to match draft version 88 exactly and verify all required pages load and navigate without runtime errors.",
       "acceptanceCriteria": [
-        "Navigating to Product Offerings → Professionals → Digital Nomad Visa shows the new comparison chart image instead of the old one.",
-        "No other images in the Digital Nomad Visa section (Portugal/Spain/Malta/Hungary/Italy) are changed.",
-        "The comparison chart remains centered and constrained by the existing 65% width container without overflow on mobile or desktop."
+        "The deployed draft corresponds to version 88 across both frontend and backend (no mixed-version behavior).",
+        "All frontend pages load successfully: Home, About, Product Offerings, GDPR, Why Choose Us, Contact, Disclaimer.",
+        "No runtime errors or blank-screen/fallback error UI occurs during initial page load and basic navigation between pages."
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ProductOffering.tsx",
+          "path": "frontend/ROLLBACK_NOTES.md",
           "operation": "modify",
-          "description": "In the Digital Nomad Visa section’s comparison chart <img>, replace the current src (\"/assets/Comparison of Digital Nomad Visas.png\") with the new static asset path. Keep the existing container styling (65% width, centered) unchanged, and do not modify the other country images’ src values."
+          "description": "Update rollback documentation to include the version 88 rollback target/reference and a checklist ensuring the frontend build artifacts correspond to version 88 (do not change product behavior; documentation-only)."
+        },
+        {
+          "path": "frontend/vite.config.ts",
+          "operation": "modify",
+          "description": "Align Vite multi-page build configuration exactly to version 88 (HTML inputs, base path behavior, and build settings) so the generated site structure matches the draft version 88 build."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Restore index page HTML wrapper to the exact version 88 content (title/meta/icon/script entry path/loading and noscript fallbacks) to ensure Home loads consistently."
+        },
+        {
+          "path": "frontend/about.html",
+          "operation": "modify",
+          "description": "Restore About page HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI) to ensure About loads without blank screen."
+        },
+        {
+          "path": "frontend/product-offerings.html",
+          "operation": "modify",
+          "description": "Restore Product Offerings HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI)."
+        },
+        {
+          "path": "frontend/gdpr.html",
+          "operation": "modify",
+          "description": "Restore GDPR HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI)."
+        },
+        {
+          "path": "frontend/why-choose-us.html",
+          "operation": "modify",
+          "description": "Restore Why Choose Us HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI)."
+        },
+        {
+          "path": "frontend/contact.html",
+          "operation": "modify",
+          "description": "Restore Contact HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI)."
+        },
+        {
+          "path": "frontend/disclaimer.html",
+          "operation": "modify",
+          "description": "Restore Disclaimer HTML wrapper to match version 88 exactly (script entry, titles, and fallback UI)."
+        },
+        {
+          "path": "frontend/404.html",
+          "operation": "modify",
+          "description": "Restore 404 redirect behavior to match version 88 exactly so clean-path navigation reliably maps to the correct static HTML pages."
+        },
+        {
+          "path": "frontend/src/routeTree.tsx",
+          "operation": "modify",
+          "description": "Restore TanStack Router route tree to the exact version 88 set of routes/components (Home/About/Product Offerings/GDPR/Why Choose Us/Contact/Disclaimer) and layout composition to prevent mixed routing behavior."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Restore header/navigation implementation to match version 88 exactly (links, active state logic, asset references, and mobile menu behavior) while keeping navigation behavior unchanged from version 88. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "modify",
+          "description": "Restore footer content/links to match version 88 exactly to ensure consistent navigation across all pages. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/layouts/StaticSiteLayout.tsx",
+          "operation": "modify",
+          "description": "Restore the static layout wrapper to match version 88 exactly (header/footer placement, spacing, and shared providers usage) so all pages render consistently."
+        },
+        {
+          "path": "frontend/src/utils/staticSiteLinks.ts",
+          "operation": "modify",
+          "description": "Restore the static link generation and navigation helpers to version 88 behavior to ensure all header/footer links resolve correctly across IC hosting and static exports."
+        },
+        {
+          "path": "frontend/src/utils/safeMount.ts",
+          "operation": "modify",
+          "description": "Restore safe-mount and fallback error handling to match version 88 exactly to prevent unexpected blank-screen/fallback behavior differences from version 88."
+        },
+        {
+          "path": "frontend/src/entries/index.tsx",
+          "operation": "modify",
+          "description": "Restore the Home entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/about.tsx",
+          "operation": "modify",
+          "description": "Restore the About entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/product-offerings.tsx",
+          "operation": "modify",
+          "description": "Restore the Product Offerings entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/gdpr.tsx",
+          "operation": "modify",
+          "description": "Restore the GDPR entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/why-choose-us.tsx",
+          "operation": "modify",
+          "description": "Restore the Why Choose Us entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/contact.tsx",
+          "operation": "modify",
+          "description": "Restore the Contact entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/entries/disclaimer.tsx",
+          "operation": "modify",
+          "description": "Restore the Disclaimer entry file to match version 88 exactly (providers, layout usage, and mount behavior)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Restore global styling and theme variables to match version 88 exactly, avoiding any new design changes beyond the version 88 appearance."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Restore router initialization/configuration to match version 88 exactly to avoid mixed-version navigation or preload behavior."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add the uploaded comparison chart image to the frontend public assets at the path used by the Digital Nomad comparison chart.",
+      "summary": "Retry the rollback/rebuild workflow end-to-end and add repeatable frontend build/deploy smoke checks to confirm pages load and navigation works post-deploy.",
       "acceptanceCriteria": [
-        "The new image exists in the built frontend assets under `public/assets/` and loads successfully at runtime (no broken image icon / 404)."
+        "A new draft deployment is produced successfully without AI service/build interruption.",
+        "Post-deploy smoke checks are executed and pass (page loads + navigation)."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png",
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "modify",
+          "description": "Update deployment guidance to include a repeatable rollback-to-version-88 rebuild procedure and explicit post-deploy smoke-check steps for the required pages (documentation only; no new features)."
+        },
+        {
+          "path": "frontend/scripts/export-godaddy-zip.sh",
+          "operation": "modify",
+          "description": "Harden the existing export script with clearer failure output and a mandatory local smoke-check step after build artifacts are generated (must remain compatible with existing workflow and not change site behavior)."
+        },
+        {
+          "path": "frontend/scripts/export-godaddy-zip.ps1",
+          "operation": "modify",
+          "description": "Harden the existing Windows export script with clearer failure output and a mandatory local smoke-check step after build artifacts are generated (must remain compatible with existing workflow and not change site behavior)."
+        },
+        {
+          "path": "frontend/scripts/smoke-check-static-build.sh",
           "operation": "create",
-          "description": "Add the newly uploaded comparison chart image as a static frontend asset so it is served at runtime (and can be referenced from the ProductOffering comparison chart <img> src)."
+          "description": "Add a minimal smoke-check script that verifies the built static files exist and performs basic page-load checks for Home, About, Product Offerings, GDPR, Why Choose Us, Contact, and Disclaimer (intended to be run after build and after deploy validation steps)."
+        },
+        {
+          "path": "frontend/scripts/smoke-check-static-build.ps1",
+          "operation": "create",
+          "description": "Add a PowerShell equivalent smoke-check script for Windows environments to validate the static build outputs and required pages."
         }
       ]
     }

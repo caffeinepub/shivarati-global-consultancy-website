@@ -1,12 +1,10 @@
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
-import { useNavigate } from '@tanstack/react-router';
+import { navigateToPage } from '@/utils/staticSiteLinks';
 
 export function MapSection() {
-  const navigate = useNavigate();
-
   const handleMapClick = () => {
-    navigate({ to: '/contact' });
+    navigateToPage('contact');
   };
 
   return (

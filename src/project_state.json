@@ -3,21 +3,22 @@
   "projectStateVersion": 3,
   "summary": "New project",
   "architectural_notes": [],
-  "known_issues": [],
-  "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- A table-style comparison chart titled \"Comparison of Digital Nomad Visas\" with country flags (Spain, Italy, Hungary, Portugal, Malta) and multiple criteria rows (Comparison of Digital Nomad Visas.dim_1536x1152.png)",
+  "known_issues": [
+    "Rollback/build attempt encountered an AI service error; retry requested"
+  ],
+  "isFixRequest": true,
   "existing_features": [
     {
-      "id": "feature-in-the-product-offerings-page-digital-nomad-visa-section-replace-the-current-comparison-chart-image-currently-referenced-as-src-assets-comparison-of-digital-nomad-visas-png-with-the-newly-uploaded-image-asset-keeping-the-same-layout-65-width-container-and-updating-the-img-src-only-if-the-final-asset-filename-differs",
-      "title": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
+      "id": "feature-rebuild-and-redeploy-the-application-by-rolling-back-the-full-codebase-frontend-backend-to-draft-version-88-so-that-the-deployed-site-matches-the-code-exactly-as-it-was-in-version-88",
+      "title": "Rebuild and redeploy the application by rolling back the full codebase (frontend + backend) to draft version 88 so that the deployed site matches the code exactly as it was in version 88.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-the-uploaded-comparison-chart-image-to-the-frontend-static-assets-so-it-is-served-at-the-path-used-by-the-digital-nomad-comparison-chart-under-frontend-public-assets",
-      "title": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
+      "id": "feature-retry-the-rollback-rebuild-operation-that-previously-failed-due-to-an-ai-service-error-and-ensure-the-operation-completes-successfully-end-to-end-build-deploy",
+      "title": "Retry the rollback/rebuild operation that previously failed due to an AI service error, and ensure the operation completes successfully end-to-end (build + deploy).",
       "reqIds": [
         "REQ-2"
       ],
@@ -27,13 +28,12 @@
   "new_feature_requests": [
     {
       "id": "AR-1",
-      "summary": "On Product Offerings page under Digital Nomad Visa, replace the 'Comparison of Digital Nomad Visas by six criteria' image with the attached file",
+      "summary": "Rollback/rebuild the website to draft version 88 and match code exactly to version 88",
       "reqIds": [],
       "status": "pending"
     }
   ],
-  "gameProjectType": "none",
-  "projectName": "Replace Digital Nomad Visa comparison chart image on Product Offerings page",
+  "projectName": "Retry rebuild/rollback to draft version 88 and match code exactly",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

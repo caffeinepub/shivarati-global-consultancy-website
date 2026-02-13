@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T09:10:08.140Z",
+  "generatedAt": "2026-02-13T04:41:47.501Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,24 +12,53 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
+        "summary": "Rebuild and redeploy the application by rolling back the full codebase (frontend + backend) to draft version 88 so that the deployed site matches the code exactly as it was in version 88.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/ProductOffering.tsx"
+          "frontend/ROLLBACK_NOTES.md",
+          "frontend/vite.config.ts",
+          "frontend/index.html",
+          "frontend/about.html",
+          "frontend/product-offerings.html",
+          "frontend/gdpr.html",
+          "frontend/why-choose-us.html",
+          "frontend/contact.html",
+          "frontend/disclaimer.html",
+          "frontend/404.html",
+          "frontend/src/routeTree.tsx",
+          "frontend/src/components/Header.tsx",
+          "frontend/src/components/Footer.tsx",
+          "frontend/src/layouts/StaticSiteLayout.tsx",
+          "frontend/src/utils/staticSiteLinks.ts",
+          "frontend/src/utils/safeMount.ts",
+          "frontend/src/entries/index.tsx",
+          "frontend/src/entries/about.tsx",
+          "frontend/src/entries/product-offerings.tsx",
+          "frontend/src/entries/gdpr.tsx",
+          "frontend/src/entries/why-choose-us.tsx",
+          "frontend/src/entries/contact.tsx",
+          "frontend/src/entries/disclaimer.tsx",
+          "frontend/src/index.css",
+          "frontend/src/App.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/ProductOffering.tsx"
+          "frontend/ROLLBACK_NOTES.md"
         ]
       },
       {
         "id": "REQ-2",
-        "summary": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
+        "summary": "Retry the rollback/rebuild operation that previously failed due to an AI service error, and ensure the operation completes successfully end-to-end (build + deploy).",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/public/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png"
+          "frontend/DEPLOYMENT.md",
+          "frontend/scripts/export-godaddy-zip.sh",
+          "frontend/scripts/export-godaddy-zip.ps1",
+          "frontend/scripts/smoke-check-static-build.sh",
+          "frontend/scripts/smoke-check-static-build.ps1"
         ],
         "matchedFiles": [
-          "frontend/public/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png"
+          "frontend/scripts/export-godaddy-zip.sh",
+          "frontend/scripts/smoke-check-static-build.sh"
         ]
       }
     ]
@@ -39,8 +68,9 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png",
-    "frontend/src/components/ProductOffering.tsx",
+    "frontend/ROLLBACK_NOTES.md",
+    "frontend/scripts/export-godaddy-zip.sh",
+    "frontend/scripts/smoke-check-static-build.sh",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

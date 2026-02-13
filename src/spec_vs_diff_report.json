@@ -1,54 +1,59 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-06T09:10:08.138Z",
-  "summary": "The diff indicates an intent to swap the Digital Nomad comparison chart image to a new filename/path, but it does not show the new image being added under frontend/public/assets as required. The diff also includes unrelated content/feature changes (per the modified frontend-file-summaries.txt) and updates to project_state.json that were not requested.",
+  "generatedAt": "2026-02-13T04:41:47.497Z",
+  "summary": "The diff mainly adds a frontend static-build smoke-check script and updates documentation/scripts/project metadata. There is no direct evidence of a full frontend+backend code rollback to version 88 or an end-to-end rebuild+deploy completion; instead, the changes appear to add extra tooling/docs beyond the rollback request.",
   "missing_requirements": [
     {
-      "id": "REQ-2",
-      "requirement": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
-      "reason": "No new file was added in the diff (Added: 0), and there is no evidence of the image being placed under `frontend/public/assets/`.",
+      "id": "REQ-1",
+      "requirement": "Rebuild and redeploy the application by rolling back the full codebase (frontend + backend) to draft version 88 so that the deployed site matches the code exactly as it was in version 88.",
+      "reason": "The diff does not show any backend rollback changes (no evidence of edits to the single Motoko actor at backend/main.mo) and does not show actual frontend source rollbacks—only a documentation note claiming the rollback happened. There is also no deploy artifact/config change shown proving the deployed draft is version 88 across frontend+backend.",
       "evidence": [
-        "File diff summary: \"Added: 0\"",
-        "frontend-file-summaries.txt (mentions usage of /assets/generated/Comparison of Digital Nomad Visas.dim_1536x1152.png but does not show the asset existing under frontend/public/assets/)"
+        "frontend/ROLLBACK_NOTES.md",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "requirement": "Retry the rollback/rebuild operation that previously failed due to an AI service error, and ensure the operation completes successfully end-to-end (build + deploy).",
+      "reason": "The diff contains a new smoke-check script and an export script that can run a build and local checks, but there is no evidence in the diff of an actual successful end-to-end rebuild+deploy being performed or automated (no CI/deploy pipeline changes, no deploy logs/results).",
+      "evidence": [
+        "frontend/scripts/smoke-check-static-build.sh",
+        "frontend/scripts/export-godaddy-zip.sh",
+        "project_state.json"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Updated EU Blue Card eligibility criteria and other Job Seeker section country titles/content.",
-      "reason": "The BuildRequest explicitly scoped changes to only swapping the Digital Nomad comparison chart image and disallowed other content/text changes in that section; these broader content updates were not requested.",
+      "description": "Added a static-build smoke check script and integrated it into the GoDaddy export flow.",
+      "reason": "The BuildRequest asked for a rollback/rebuild to version 88 and successful deploy; it did not request adding new build tooling/scripts.",
       "evidence": [
-        "frontend-file-summaries.txt (ProductOffering.tsx description mentions updated EU Blue Card criteria and updated country titles/content for Job Seeker section)"
+        "frontend/scripts/smoke-check-static-build.sh",
+        "frontend/scripts/export-godaddy-zip.sh"
       ]
     },
     {
-      "description": "Changed the Digital Nomad Visa comparison chart sizing to 65% width (stated as a reduction from 85%).",
-      "reason": "REQ-1 requires keeping the same existing layout (already 65% width per request); implementing a reduction from a previous 85% implies an additional layout change beyond just swapping the image.",
+      "description": "Added/expanded rollback history documentation (ROLLBACK_NOTES.md) describing verification steps and outcomes.",
+      "reason": "The BuildRequest did not request new documentation files; it requested matching version 88 and a successful rebuild/deploy.",
       "evidence": [
-        "frontend-file-summaries.txt (\"Digital Nomad Visa comparison chart reduced to 65% width (20% reduction from previous 85% size)\")"
+        "frontend/ROLLBACK_NOTES.md"
       ]
     },
     {
-      "description": "Added/updated URL hash deep-linking behavior to automatically open tabs/accordions and smooth scroll.",
-      "reason": "Not requested by the BuildRequest, which is limited to replacing a single image and adding its asset.",
+      "description": "Updated project tracking state (project_state.json) with new AR entries marked pending.",
+      "reason": "The BuildRequest did not request modifications to project metadata/state files.",
       "evidence": [
-        "frontend/src/components/ProductOffering.tsx (shows new useEffect handling window.location.hash and scrollIntoView)",
-        "frontend-file-summaries.txt (mentions automatic tab/accordion opening based on URL hash)"
-      ]
-    },
-    {
-      "description": "Updated project_state.json with new_feature_requests entries (AR-1/AR-2/AR-3).",
-      "reason": "The BuildRequest did not request changes to project tracking metadata files.",
-      "evidence": [
-        "project_state.json (modified, includes new_feature_requests AR-1/AR-2/AR-3)"
+        "project_state.json"
       ]
     }
   ],
-  "confidence": 0.72,
+  "confidence": 0.66,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/ProductOffering.tsx",
+    "frontend/ROLLBACK_NOTES.md",
+    "frontend/scripts/export-godaddy-zip.sh",
+    "frontend/scripts/smoke-check-static-build.sh",
     "project_state.json"
   ]
 }

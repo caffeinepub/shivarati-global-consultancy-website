@@ -2,35 +2,34 @@ import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Link, useLocation } from '@tanstack/react-router';
+import { pageLinks } from '@/utils/staticSiteLinks';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isHoverZoneActive, setIsHoverZoneActive] = useState(false);
-  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState('');
   const lastScrollY = useRef(0);
   const scrollThreshold = 20;
+
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Update scrolled state for styling
       setIsScrolled(currentScrollY > scrollThreshold);
       
-      // Determine visibility based on scroll direction and position
       if (currentScrollY === 0) {
-        // Always show at top
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current && currentScrollY > scrollThreshold) {
-        // Scrolling down past threshold - hide (unless mobile menu is open or hover zone active)
         if (!isOpen && !isHoverZoneActive) {
           setIsVisible(false);
         }
       } else if (currentScrollY < lastScrollY.current) {
-        // Scrolling up - show
         setIsVisible(true);
       }
       
@@ -41,33 +40,41 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isOpen, isHoverZoneActive]);
 
-  // Keep header visible when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       setIsVisible(true);
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
   const navItems = [
-    { label: 'Home', path: '/' },
-    { label: 'About Us', path: '/about' },
-    { label: 'Product Offerings', path: '/product-offerings' },
-    { label: 'GDPR', path: '/gdpr' },
-    { label: 'Why Choose Us', path: '/why-choose-us' },
-    { label: 'Contact', path: '/contact' }
+    { label: 'Home', path: pageLinks.home },
+    { label: 'About Us', path: pageLinks.about },
+    { label: 'Product Offerings', path: pageLinks.productOfferings },
+    { label: 'GDPR', path: pageLinks.gdpr },
+    { label: 'Why Choose Us', path: pageLinks.whyChooseUs },
+    { label: 'Contact', path: pageLinks.contact },
+    { label: 'Disclaimer', path: pageLinks.disclaimer }
   ];
 
   const isActivePath = (path: string) => {
-    return location.pathname === path;
+    // Normalize current path to last segment for sub-path hosting support
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    const lastSegment = pathSegments.length > 0 ? pathSegments[pathSegments.length - 1] : 'index.html';
+    const normalizedCurrent = lastSegment || 'index.html';
+    
+    // Extract the page name from the target path
+    const targetSegments = path.split('/').filter(Boolean);
+    const targetPage = targetSegments.length > 0 ? targetSegments[targetSegments.length - 1] : 'index.html';
+    
+    // Compare with .html stripped for equivalence
+    const currentBase = normalizedCurrent.replace('.html', '');
+    const targetBase = targetPage.replace('.html', '');
+    
+    return currentBase === targetBase || normalizedCurrent === targetPage;
   };
 
   return (
     <>
-      {/* Top-edge hover reveal zone - invisible trigger area */}
       <div
         className="fixed top-0 left-0 right-0 h-4 z-[60] pointer-events-auto"
         onMouseEnter={() => setIsHoverZoneActive(true)}
@@ -85,7 +92,7 @@ export function Header() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-24 md:h-28">
-            <Link to="/" className="flex items-center gap-4">
+            <a href={pageLinks.home} className="flex items-center gap-4">
               <img 
                 src="/assets/SGC-Final-Logo-1.png" 
                 alt="Shivarita Global Consultancy" 
@@ -94,13 +101,13 @@ export function Header() {
               <span className="text-navy-blue-shadow text-xl md:text-2xl font-bold whitespace-nowrap">
                 Shivarita Global Consultancy
               </span>
-            </Link>
+            </a>
 
             <nav className="hidden lg:flex items-center space-x-1">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.path}
-                  to={item.path}
+                  href={item.path}
                 >
                   <Button
                     variant="ghost"
@@ -110,7 +117,7 @@ export function Header() {
                   >
                     {item.label}
                   </Button>
-                </Link>
+                </a>
               ))}
             </nav>
 
@@ -123,9 +130,9 @@ export function Header() {
               <SheetContent side="right" className="w-[300px]">
                 <nav className="flex flex-col space-y-4 mt-8">
                   {navItems.map((item) => (
-                    <Link
+                    <a
                       key={item.path}
-                      to={item.path}
+                      href={item.path}
                       onClick={() => setIsOpen(false)}
                     >
                       <Button
@@ -136,7 +143,7 @@ export function Header() {
                       >
                         {item.label}
                       </Button>
-                    </Link>
+                    </a>
                   ))}
                 </nav>
               </SheetContent>

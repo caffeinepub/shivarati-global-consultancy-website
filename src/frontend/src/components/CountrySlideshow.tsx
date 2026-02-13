@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useNavigate } from '@tanstack/react-router';
+import { navigateToPage } from '@/utils/staticSiteLinks';
 
 interface CountrySlide {
   image: string;
@@ -38,7 +38,6 @@ const countries: CountrySlide[] = [
 ];
 
 export function CountrySlideshow() {
-  const navigate = useNavigate();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -63,7 +62,7 @@ export function CountrySlideshow() {
   };
 
   const handleSlideClick = () => {
-    navigate({ to: '/contact' });
+    navigateToPage('contact');
   };
 
   const handleDotClick = (index: number) => {

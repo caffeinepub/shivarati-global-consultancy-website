@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the Digital Nomad Visa comparison chart image on the Product Offerings page with the newly uploaded chart, without changing layout or other country images.
+**Goal:** Rebuild and redeploy the app by rolling back the full codebase (frontend + backend) to draft version 88 so the deployed site matches version 88 exactly.
 
 **Planned changes:**
-- Add the newly uploaded comparison chart image to `frontend/public/assets/`.
-- Update the Digital Nomad Visa section on the Product Offerings page to reference the new comparison chart image via the `<img>` `src` (only changing the filename/path if it differs from the current `"/assets/Comparison of Digital Nomad Visas.png"`).
-- Keep the existing centered, 65% width container styling so the image remains constrained and responsive on mobile and desktop.
+- Roll back the frontend and backend code to draft version 88 with no mixed-version behavior.
+- Re-run the build and deployment process to complete successfully end-to-end after the prior AI service error.
+- Perform post-deploy smoke checks to confirm all core pages load and basic navigation works without runtime errors.
 
-**User-visible outcome:** On Product Offerings → Professionals → Digital Nomad Visa, users see the updated comparison chart image, while all other Digital Nomad Visa images (Portugal/Spain/Malta/Hungary/Italy) remain unchanged.
+**User-visible outcome:** The deployed draft matches version 88 across the entire app, and users can load and navigate between Home, About, Product Offerings, GDPR, Why Choose Us, Contact, and Disclaimer without blank screens or runtime errors.

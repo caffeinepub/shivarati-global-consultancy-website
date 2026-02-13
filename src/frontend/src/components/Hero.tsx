@@ -1,18 +1,8 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, Shield, Award } from 'lucide-react';
-import { useNavigate } from '@tanstack/react-router';
+import { pageLinks } from '@/utils/staticSiteLinks';
 
 export function Hero() {
-  const navigate = useNavigate();
-
-  const handleGetStarted = () => {
-    navigate({ to: '/product-offerings' });
-  };
-
-  const handleLearnMore = () => {
-    navigate({ to: '/about' });
-  };
-
   return (
     <section className="relative pt-32 pb-20 md:pt-36 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10" />
@@ -38,13 +28,17 @@ export function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" onClick={handleGetStarted} className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
-                Get Started
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" onClick={handleLearnMore} className="border-primary/30 hover:bg-primary/10">
-                Learn More
-              </Button>
+              <a href={pageLinks.productOfferings}>
+                <Button size="lg" className="group bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </a>
+              <a href={pageLinks.about}>
+                <Button size="lg" variant="outline" className="border-primary/30 hover:bg-primary/10">
+                  Learn More
+                </Button>
+              </a>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">

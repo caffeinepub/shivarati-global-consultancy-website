@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-product-offerings-page-digital-nomad-visa-section-replace-the-current-comparison-chart-image-currently-referenced-as-src-assets-comparison-of-digital-nomad-visas-png-with-the-newly-uploaded-image-asset-keeping-the-same-layout-65-width-container-and-updating-the-img-src-only-if-the-final-asset-filename-differs",
-      "featureTitle": "In the Product Offerings page Digital Nomad Visa section, replace the current comparison chart image (currently referenced as `src=\"/assets/Comparison of Digital Nomad Visas.png\"`) with the newly uploaded image asset, keeping the same layout (65% width container) and updating the `<img>` `src` only if the final asset filename differs.",
+      "featureId": "feature-rebuild-and-redeploy-the-application-by-rolling-back-the-full-codebase-frontend-backend-to-draft-version-88-so-that-the-deployed-site-matches-the-code-exactly-as-it-was-in-version-88",
+      "featureTitle": "Rebuild and redeploy the application by rolling back the full codebase (frontend + backend) to draft version 88 so that the deployed site matches the code exactly as it was in version 88.",
       "files": [
-        "frontend/src/components/ProductOffering.tsx"
+        "frontend/ROLLBACK_NOTES.md"
       ],
       "components": [
         "blob-storage@4.0.0",
@@ -22,9 +22,12 @@
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-the-uploaded-comparison-chart-image-to-the-frontend-static-assets-so-it-is-served-at-the-path-used-by-the-digital-nomad-comparison-chart-under-frontend-public-assets",
-      "featureTitle": "Add the uploaded comparison chart image to the frontend static assets so it is served at the path used by the Digital Nomad comparison chart (under `frontend/public/assets/`).",
-      "files": [],
+      "featureId": "feature-retry-the-rollback-rebuild-operation-that-previously-failed-due-to-an-ai-service-error-and-ensure-the-operation-completes-successfully-end-to-end-build-deploy",
+      "featureTitle": "Retry the rollback/rebuild operation that previously failed due to an AI service error, and ensure the operation completes successfully end-to-end (build + deploy).",
+      "files": [
+        "frontend/scripts/export-godaddy-zip.sh",
+        "frontend/scripts/smoke-check-static-build.sh"
+      ],
       "components": [
         "blob-storage@4.0.0",
         "http-outcalls@3.0.0",
